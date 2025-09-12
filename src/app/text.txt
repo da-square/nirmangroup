@@ -1,0 +1,116 @@
+// "use client";
+// import { useState } from "react";
+// import Image from "next/image";
+
+// const images = [
+//   "/images/day.png",
+//   "/images/sunset.png",
+//   "/images/night.png"
+// ];
+
+// const listItems = [
+//   "Gift to the India, Gift city in Gujarat",
+//   "New tech capital of India",
+//   "Our new powerhouse"
+// ];
+
+// export default function Home() {
+//   const [stage, setStage] = useState(0);
+//   const [transitionStarted, setTransitionStarted] = useState(false);
+
+//   const handleTransition = () => {
+//     if (!transitionStarted) {
+//       setTransitionStarted(true);
+
+//       // Start background transition
+//       setStage(1);
+
+//       // After 500ms, update text & finish background transition
+//       setTimeout(() => {
+//         setStage(2);
+//       }, 500);
+//     }
+//   };
+
+//   return (
+//     <div className="relative w-full h-screen overflow-hidden font-sans">
+//       {/* Background layers */}
+//       {images.map((src, index) => (
+//         <Image
+//           key={index}
+//           src={src}
+//           alt="Plane background"
+//           fill
+//           priority
+//           className={`object-cover absolute inset-0 transition-opacity duration-500 ease-in-out ${
+//             stage >= index ? "opacity-100" : "opacity-0"
+//           }`}
+//         />
+//       ))}
+
+//       {/* Overlay content */}
+//       <div className="absolute inset-0 flex flex-col items-start justify-center p-16 md:p-24 space-y-6">
+//         {/* Heading */}
+//         {!transitionStarted ? (
+//           <>
+//             <h1 className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-2xl">
+//               Discover What
+//             </h1>
+//             <h1 className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-2xl">
+//               We’re Building
+//             </h1>
+//           </>
+//         ) : (
+//           <>
+//             <h1 className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 drop-shadow-xl animate-slideRight">
+//               See the Future
+//             </h1>
+
+//             {/* Animated List */}
+//             <ul className="mt-8 space-y-4">
+//               {listItems.map((item, idx) => (
+//                 <li
+//                   key={idx}
+//                   className={`text-xl md:text-2xl font-semibold text-white opacity-0 animate-fadeUp hover:text-yellow-300 transition-all duration-300`}
+//                   style={{ animationDelay: `${idx * 300}ms` }}
+//                 >
+//                   {item}
+//                 </li>
+//               ))}
+//             </ul>
+//           </>
+//         )}
+
+//         {/* Button */}
+//         {!transitionStarted && (
+//           <button
+//             onClick={handleTransition}
+//             className="px-8 py-4 mt-8 text-lg md:text-xl font-semibold rounded-3xl shadow-2xl text-white bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:scale-105 transition-transform duration-300"
+//           >
+//             Know More
+//           </button>
+//         )}
+//       </div>
+
+//       {/* Tailwind keyframes for animations */}
+//       <style jsx>{`
+//         @keyframes slideRight {
+//           0% { transform: translateX(0); opacity: 0; }
+//           20% { opacity: 1; }
+//           100% { transform: translateX(60vw); opacity: 1; }
+//         }
+//         .animate-slideRight {
+//           animation: slideRight 0.8s cubic-bezier(0.65,0,0.35,1) forwards;
+//         }
+
+//         @keyframes fadeUp {
+//           0% { opacity: 0; transform: translateY(20px); }
+//           100% { opacity: 1; transform: translateY(0); }
+//         }
+//         .animate-fadeUp {
+//           animation: fadeUp 0.6s ease-out forwards;
+//         }
+//       `}</style>
+//     </div>
+//   );
+// }
