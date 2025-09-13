@@ -19,6 +19,7 @@ const socialLinks = [
 export default function Footer() {
   return (
     <footer className="bg-black text-gray-300">
+      <div className="border-t border-gray-800 text-gray-500"></div>
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 flex flex-col md:flex-row md:justify-between md:items-start gap-16">
         {/* Brand + About */}
