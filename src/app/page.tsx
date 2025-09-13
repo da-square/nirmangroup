@@ -8,10 +8,9 @@ export default function Home() {
   return (
     <div className="bg-gray-900 text-white">
       <Hero />
-
-
+      <Stats />
       {/* <Projects />
-      <Stats /> */}
+       */}
     </div>
   );
 }

@@ -75,7 +75,7 @@ const Hero = () => {
       </section>
 
       {/* EXTRA SCROLLABLE CONTENT */}
-      <section className="relative z-10 bg-white text-gray-800 px-8 md:px-24 py-24 space-y-12 leading-relaxed">
+      {/* <section className="relative z-10 bg-white text-gray-800 px-8 md:px-24 py-24 space-y-12 leading-relaxed">
         <h2 className={`text-4xl md:text-5xl font-bold ${orbitron.className}`}>
           More About the Vision
         </h2>
@@ -99,7 +99,7 @@ const Hero = () => {
           the ambition of a country ready to lead in every sphere, from finance to
           innovation, from technology to global influence.
         </p>
-      </section>
+      </section> */}
 
       {/* ANIMATIONS */}
       <style jsx global>{`
