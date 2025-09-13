@@ -9,7 +9,7 @@ const listItems = [
   "Our new powerhouse",
 ];
 
-export default function Hero() {
+const Hero = () => {
   const [stage, setStage] = useState(0);
   const [transitionStarted, setTransitionStarted] = useState(false);
 
@@ -75,4 +75,6 @@ export default function Hero() {
       </div>
     </section>
   );
-}
+};
+
+export default Hero;

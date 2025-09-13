@@ -7,7 +7,7 @@ const stats = [
   { label: "Awards", value: "10+" },
 ];
 
-export default function Stats() {
+const Stats = () => {
   return (
     <section
       id="stats"
@@ -33,4 +33,6 @@ export default function Stats() {
       </div>
     </section>
   );
-}
+};
+
+export default Stats;

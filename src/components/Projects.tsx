@@ -16,7 +16,7 @@ const projects = [
   },
 ];
 
-export default function Projects() {
+const Projects = () => {
   return (
     <section
       id="projects"
@@ -42,4 +42,5 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+};
+export default Projects;
