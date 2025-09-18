@@ -1,9 +1,11 @@
 "use client";
 
+import ContactForm from "@/components/Form";
 import Hero from "@/components/Hero";
 import Offerings from "@/components/Offerings";
 import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
+import WhyInvest from "@/components/WhyInvest";
 
 export default function Home() {
   return (
@@ -11,6 +13,9 @@ export default function Home() {
       <Hero />
       <Stats />
       <Offerings/>
+      <WhyInvest />
+      <ContactForm />
+
       {/* <Projects />
        */}
     </div>
