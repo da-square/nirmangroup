@@ -2,6 +2,7 @@
 
 import ContactForm from "@/components/Form";
 import Hero from "@/components/Hero";
+import Offerings from "@/components/Offerings";
 import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
 import WhyInvest from "@/components/WhyInvest";
@@ -11,6 +12,7 @@ export default function Home() {
     <div className="bg-gray-900 text-white">
       <Hero />
       <Stats />
+      <Offerings/>
       <WhyInvest />
       <ContactForm />
 
