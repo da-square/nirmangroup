@@ -1,5 +1,6 @@
 "use client";
 
+import Amenities from "@/components/Amenities";
 import ContactForm from "@/components/Form";
 import Hero from "@/components/Hero";
 import Offerings from "@/components/Offerings";
@@ -16,6 +17,9 @@ export default function Home() {
       <ProjectsSection />
       <WhyInvest />
       <ContactForm />
+      <Amenities />
+      {/* <Projects />
+       */}
     </div>
   );
 }
