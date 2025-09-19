@@ -25,7 +25,7 @@ const offerings = [
 
 const Offerings = () => {
   return (
-    <section className="relative w-full px-4 sm:px-8 md:px-16 lg:px-24 py-20 bg-gray-950 text-white"   id="offerings">
+    <section className="relative w-full px-4 sm:px-8 md:px-16 lg:px-24 py-20 bg-gray-900 text-white"   id="offerings">
       <div className="max-w-7xl mx-auto">
         {/* Heading with animation */}
         <motion.h2

@@ -3,6 +3,7 @@
 import ContactForm from "@/components/Form";
 import Hero from "@/components/Hero";
 import Offerings from "@/components/Offerings";
+import FutureCityExperience from "@/components/outFeature";
 import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
 import WhyInvest from "@/components/WhyInvest";
@@ -15,6 +16,7 @@ export default function Home() {
       <Offerings/>
       <WhyInvest />
       <ContactForm />
+      <FutureCityExperience  />
 
       {/* <Projects />
        */}
