@@ -24,7 +24,7 @@ export default function WhyInvest() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
+    <section className="py-20 bg-gray-900">
       <h1 className="text-3xl sm:text-4xl font-bold text-center mb-12">
         Why Invest In <span className="text-yellow-400">Dholera?</span>
       </h1>

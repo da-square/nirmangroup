@@ -1,42 +1,18 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-
-const offerings = [
- {
-    title: "Premium Residential Plots",
-    description:
-      "Curated Vastu-compliant plots in prime zones of Dholera SIR, blending refined living with strong investment growth.",
-    image: "/images/residential.png",
-  },
-  {
-    title: "Commercial & Semi Commercial Lands",
-    description:
-      "High-potential spaces for retail, offices, and hospitality in Dholera’s emerging economic hub.",
-    image: "/images/commercial.png",
-  },
-  {
-    title: "Industrial Lands",
-    description:
-      "Expansive lands near key infrastructure, ideal for manufacturing, logistics, and large-scale operations.",
-    image: "/images/industrial.png",
-  },
-];
+import { offerings } from "@/data/offerings";
 
 const Offerings = () => {
   return (
-    <section className="relative w-full px-4 sm:px-8 md:px-16 lg:px-24 py-20 bg-gray-900 text-white"   id="offerings">
+    <section
+      className="relative w-full px-4 sm:px-8 md:px-16 lg:px-24 py-20 bg-gray-950 text-white"
+      id="offerings"
+    >
       <div className="max-w-7xl mx-auto">
-        {/* Heading with animation */}
-        <motion.h2
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-center text-yellow-300 mb-16 drop-shadow-[0_0_20px_rgba(255,215,0,0.6)]"
-        >
-          Our Offerings
-        </motion.h2>
+        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+          Our <span className="text-yellow-400">Offerings</span>
+        </h1>
 
         {/* Grid of offerings */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
