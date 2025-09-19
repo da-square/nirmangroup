@@ -3,10 +3,13 @@
 import Amenities from "@/components/Amenities";
 import ContactForm from "@/components/Form";
 import Hero from "@/components/Hero";
-import Offerings from "@/components/Offerings";
+import { offerings } from "@/data/offerings";
+import FutureCityExperience from "@/components/outFeature";
 import ProjectsSection from "@/components/ProjectsSection";
+// import ProjectsSection from "@/components/ProjectsSection";
 import Stats from "@/components/Stats";
 import WhyInvest from "@/components/WhyInvest";
+import Offerings from "@/components/Offerings";
 
 export default function Home() {
   return (
@@ -17,6 +20,8 @@ export default function Home() {
       <ProjectsSection />
       <WhyInvest />
       <ContactForm />
+      <FutureCityExperience  />
+
       <Amenities />
       {/* <Projects />
        */}
