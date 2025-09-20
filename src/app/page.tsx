@@ -16,11 +16,11 @@ export default function Home() {
     <div className="bg-gray-900 text-white">
       <Hero />
       <Stats />
+      <FutureCityExperience  />
       <Offerings />
       <ProjectsSection />
       <WhyInvest />
       <ContactForm />
-      <FutureCityExperience  />
 
       <Amenities />
       {/* <Projects />
