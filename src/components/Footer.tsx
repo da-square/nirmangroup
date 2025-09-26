@@ -25,7 +25,7 @@ export default function Footer() {
         {/* Brand + About */}
         <div className="flex-1 text-center md:text-left">
           <Image
-            src="/images/header-logo.png"
+            src="/images/logo/header-logo.png"
             alt="Dholera Nirman Group"
             width={200}
             height={70}

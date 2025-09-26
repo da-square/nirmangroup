@@ -31,7 +31,9 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full h-[12%] z-50 transition-all duration-500 ${
-        scrolled ? "bg-gradient-to-r from-gray-900 via-gray-800 to-black" : "bg-transparent"
+        scrolled
+          ? "bg-gradient-to-r from-gray-900 via-gray-800 to-black"
+          : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -39,7 +41,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              src="/images/header-logo.png"
+              src="/images/logo/header-logo.png"
               alt="Logo"
               className=""
               width={96}

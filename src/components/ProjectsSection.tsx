@@ -31,7 +31,7 @@ const ProjectsSection = () => {
                 alt={projects[active].name}
                 fill
                 priority
-                className="object-revert-layer"
+                className="object-revert-layer bg-gray-800"
               />
               <div className="absolute bottom-0 left-0 p-4 sm:p-6 w-full bg-gradient-to-t from-black/80 via-black/50 to-transparent">
                 <h3 className="text-lg sm:text-xl md:text-3xl font-semibold text-yellow-400">

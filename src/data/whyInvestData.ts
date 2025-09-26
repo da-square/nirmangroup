@@ -8,22 +8,22 @@ export interface WhyInvestItem {
 export const whyInvestList: WhyInvestItem[] = [
   {
     title: "Dholera Cargo Cum Passenger International Airport",
-    img: "/images/International-Airport.png",
+    img: "/images/whyInvest/International-Airport.png",
   },
   {
     title: "Ahmedabad Dholera Express Way",
-    img: "/images/Ahmedabad-Dholera-Express-Way.png",
+    img: "/images/whyInvest/Ahmedabad-Dholera-Express-Way.png",
   },
   {
     title: "Tata Semiconductor Plant",
-    img: "/images/Tata-Semiconductor-plant.png",
+    img: "/images/whyInvest/Tata-Semiconductor-plant.png",
   },
   {
     title: "Mono Rail Connectivity",
-    img: "/images/Mono-Rail-Connectivity.png",
+    img: "/images/whyInvest/Mono-Rail-Connectivity.png",
   },
   {
     title: "Tata Solar Power Plant Of 5000MW",
-    img: "/images/Tata-Solar.jpg",
+    img: "/images/whyInvest/Tata-Solar.jpg",
   },
 ];

@@ -8,17 +8,21 @@ const orbitron = Orbitron({
   weight: ["400", "600", "700", "900"],
 });
 
-const images = ["/images/day.png", "/images/sunset.png", "/images/night.png", "/images/place.png"];
-const listItems = [ 
+const images = [
+  "/images/hero/day.png",
+  "/images/hero/sunset.png",
+  "/images/hero/night.png",
+  "/images/hero/place.png",
+];
+const listItems = [
   "New tech capital of India",
-"City of Endless Possibilities",
-"A City for Every Dream"
-  
+  "City of Endless Possibilities",
+  "A City for Every Dream",
 ];
 
 const Hero = () => {
   const [stage, setStage] = useState(0);
-    const handleKnowMoreClick = () => {
+  const handleKnowMoreClick = () => {
     const offeringsSection = document.getElementById("offerings");
     offeringsSection?.scrollIntoView({ behavior: "smooth" });
   };
@@ -35,7 +39,6 @@ const Hero = () => {
     <>
       {/* HERO SECTION */}
       <section className="relative flex flex-col items-start justify-center min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-20 space-y-6 overflow-hidden">
-
         {/* Background Images */}
         <div className="absolute inset-0 overflow-hidden">
           {images.map((src, index) => (
@@ -63,32 +66,32 @@ const Hero = () => {
           </h1>
 
           <ul className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
-  {listItems.map((item, idx) => (
-    <li
-      key={idx}
-      className="text-base sm:text-lg md:text-2xl font-semibold text-gray-200 opacity-0 animate-fadeInStagger hover:text-yellow-300 transition-colors"
-      style={{ animationDelay: `${idx * 400}ms` }}
-    >
-      {item}
-    </li>
-  ))}
-</ul>
+            {listItems.map((item, idx) => (
+              <li
+                key={idx}
+                className="text-base sm:text-lg md:text-2xl font-semibold text-gray-200 opacity-0 animate-fadeInStagger hover:text-yellow-300 transition-colors"
+                style={{ animationDelay: `${idx * 400}ms` }}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
 
-{/* Investment Line */}
-<p className="mt-6 sm:mt-8 text-lg sm:text-xl md:text-2xl font-bold text-gray-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] animate-fadeInUp">
-  Smart investments start at just{" "}
-  <span className="text-yellow-300 animate-pulse">₹8.65 Lakhs</span>{" "}
-  for <span className="text-blue-300">residential plots</span> &{" "}
-  <span className="text-yellow-300 animate-pulse">₹27.80 Lakhs</span>{" "}
-  for <span className="text-pink-300">semi-commercial spaces</span>.
-</p>
+          {/* Investment Line */}
+          <p className="mt-6 sm:mt-8 text-lg sm:text-xl md:text-2xl font-bold text-gray-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] animate-fadeInUp">
+            Smart investments start at just{" "}
+            <span className="text-yellow-300 animate-pulse">₹8.65 Lakhs</span>{" "}
+            for <span className="text-blue-300">residential plots</span> &{" "}
+            <span className="text-yellow-300 animate-pulse">₹27.80 Lakhs</span>{" "}
+            for <span className="text-pink-300">semi-commercial spaces</span>.
+          </p>
 
-
-<button
-   onClick={handleKnowMoreClick} className="px-6 py-3 sm:px-8 sm:py-4 mt-8 sm:mt-10 text-base sm:text-lg md:text-xl font-bold rounded-3xl shadow-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white hover:opacity-90 transition-opacity duration-300">
-  Know More
-</button>
-
+          <button
+            onClick={handleKnowMoreClick}
+            className="px-6 py-3 sm:px-8 sm:py-4 mt-8 sm:mt-10 text-base sm:text-lg md:text-xl font-bold rounded-3xl shadow-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white hover:opacity-90 transition-opacity duration-300"
+          >
+            Know More
+          </button>
         </div>
       </section>
 
