@@ -24,6 +24,6 @@ export const whyInvestList: WhyInvestItem[] = [
   },
   {
     title: "Tata Solar Power Plant Of 5000MW",
-    img: "/images/whyInvest/Tata-Solar.jpg",
+    img: "/images/whyInvest/Tata-Solar.jpeg",
   },
 ];
