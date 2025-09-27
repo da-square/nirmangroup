@@ -12,7 +12,7 @@ export const projects = [
   {
     name: "The Velavadar Exotica",
     description: "Rising above with premium infrastructure and luxury living.",
-    images: ["/images/projects/velavadar-exotica/3.png"],
+    images: ["/images/projects/velavadar-exotica/logo.jpeg"],
   },
   {
     name: "The Meridian",
