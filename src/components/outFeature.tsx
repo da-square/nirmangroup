@@ -1,8 +1,8 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 
 const zones = [
@@ -36,24 +36,17 @@ const timeline = [
 export default function FutureCityExperience() {
   const [activeZone, setActiveZone] = useState<number>(0);
   const [activeImage, setActiveImage] = useState<number>(0);
-  const [showOverlay, setShowOverlay] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(true);
 
-  // Track when section is in view
-  const { ref, inView } = useInView({
-    threshold: 0.3, // trigger when 30% of section is visible
-    triggerOnce: true, // only fire once
-  });
+  const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
-  // Trigger overlay when section comes into view
   useEffect(() => {
     if (inView) {
-      setShowOverlay(true);
       const timer = setTimeout(() => setShowOverlay(false), 3000);
       return () => clearTimeout(timer);
     }
   }, [inView]);
 
-  // Auto-scroll zones
   useEffect(() => {
     const zoneInterval = setInterval(() => {
       setActiveZone((prev) => (prev + 1) % zones.length);
@@ -62,7 +55,6 @@ export default function FutureCityExperience() {
     return () => clearInterval(zoneInterval);
   }, []);
 
-  // Auto-scroll images inside a zone
   useEffect(() => {
     const imgInterval = setInterval(() => {
       setActiveImage((prev) => (prev + 1) % zones[activeZone].stories.length);
@@ -73,47 +65,38 @@ export default function FutureCityExperience() {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-screen bg-gray-900 text-white overflow-hidden"
+      className="relative w-full min-h-screen overflow-hidden 
+      bg-gradient-to-br from-sky-200 via-green-100 to-sky-300 text-gray-800"
     >
-      {/* Overlay with Door Opening Animation */}
+      {/* Background shapes */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
+        <div className="absolute top-20 -left-20 w-[500px] h-[500px] bg-sky-300/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-green-300/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-sky-200/50 to-green-200/50 rounded-full blur-[200px]"></div>
+      </div>
+
+      {/* Overlay Intro */}
       <AnimatePresence>
         {showOverlay && (
           <motion.div
-            className="absolute inset-0 z-50 flex items-center justify-center bg-gray-900"
+            className="absolute inset-0 z-50 flex items-center justify-center bg-gradient-to-r from-sky-300 to-green-300"
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
           >
-            {/* Left Door */}
-            <motion.div
-              className="absolute left-0 top-0 h-full w-1/2 bg-gradient-to-r from-gray-800 to-gray-900"
-              initial={{ x: 0 }}
-              animate={{ x: "-100%" }}
-              transition={{ duration: 2, ease: "easeInOut" }}
-            />
-            {/* Right Door */}
-            <motion.div
-              className="absolute right-0 top-0 h-full w-1/2 bg-gradient-to-l from-gray-800 to-gray-900"
-              initial={{ x: 0 }}
-              animate={{ x: "100%" }}
-              transition={{ duration: 2, ease: "easeInOut" }}
-            />
-            {/* Center Text */}
-            <motion.div
-              className="relative z-10 text-center"
+            <motion.h1
+              className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
             >
-              <h1 className="text-4xl md:text-6xl font-extrabold text-blue-400 drop-shadow-lg">
-                Welcome to the City of Tomorrow ✨
-              </h1>
-            </motion.div>
+              Welcome to the City of Tomorrow ✨
+            </motion.h1>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Short Intro */}
+      {/* Intro Text */}
       {!showOverlay && inView && (
         <motion.div
           className="relative z-10 text-center px-6 mt-20 max-w-2xl mx-auto"
@@ -121,19 +104,19 @@ export default function FutureCityExperience() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-yellow-400 mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-sky-900 mb-4">
             Step Into the Future
           </h2>
-          <p className="text-lg md:text-xl text-gray-300">
+          <p className="text-lg md:text-xl text-gray-700">
             Explore the zones that define tomorrow’s lifestyle.
           </p>
         </motion.div>
       )}
 
-      {/* Explore Zones Slider */}
+      {/* Zones Slider */}
       {!showOverlay && inView && (
         <div className="relative w-full flex justify-center mt-20">
-          <div className="relative w-[90%] md:w-[80%] lg:w-[70%] h-[65vh] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="relative w-[90%] md:w-[80%] lg:w-[70%] h-[65vh] rounded-3xl overflow-hidden shadow-2xl bg-white/20 backdrop-blur-xl border border-white/30">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${zones[activeZone].id}-${activeImage}`}
@@ -147,27 +130,27 @@ export default function FutureCityExperience() {
                   src={zones[activeZone].stories[activeImage]}
                   alt={zones[activeZone].title}
                   fill
-                  className="object-cover brightness-75"
+                  className="object-cover rounded-3xl"
                 />
-                {/* Overlay Info */}
-                <div className="absolute bottom-10 left-10 bg-black/60 backdrop-blur-md p-6 rounded-xl max-w-lg shadow-lg">
-                  <h2 className="text-2xl md:text-4xl font-bold text-cyan-300">
+                <div className="absolute bottom-10 left-10 bg-white/70 backdrop-blur-lg p-6 rounded-2xl max-w-lg shadow-lg border border-sky-100">
+                  <h2 className="text-2xl md:text-4xl font-bold text-green-700">
                     {zones[activeZone].title}
                   </h2>
-                  <p className="text-gray-300 mt-2">{zones[activeZone].desc}</p>
+                  <p className="text-gray-800 mt-2">{zones[activeZone].desc}</p>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
       )}
-      {/* Enhanced Day in the Life */}
+
+      {/* Timeline */}
       {!showOverlay && inView && (
         <div className="mt-28 px-6 max-w-6xl mx-auto relative z-10">
-          <h3 className="text-3xl md:text-5xl font-bold text-center text-blue-300 mb-16">
+          <h3 className="text-3xl md:text-5xl font-bold text-center text-sky-800 mb-16">
             A Day in the Life 🌍
           </h3>
-          <div className="relative border-l-2 border-cyan-400/40 ml-6">
+          <div className="relative border-l-2 border-green-400 ml-6">
             {timeline.map((event, i) => (
               <motion.div
                 key={i}
@@ -178,8 +161,8 @@ export default function FutureCityExperience() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                {/* Timeline Dot */}
-                <span className="absolute -left-8 w-6 h-6 bg-cyan-400 rounded-full shadow-lg shadow-cyan-500/50 group-hover:scale-125 transition-transform" />
+                {/* Dot */}
+                <span className="absolute -left-8 w-6 h-6 bg-green-400 rounded-full shadow-md group-hover:scale-125 transition-transform" />
 
                 {/* Image */}
                 <Image
@@ -187,15 +170,15 @@ export default function FutureCityExperience() {
                   alt={event.text}
                   width={400}
                   height={240}
-                  className="rounded-xl object-cover shadow-xl group-hover:scale-105 transition-transform"
+                  className="rounded-xl object-cover shadow-lg group-hover:scale-105 transition-transform"
                 />
 
                 {/* Text */}
-                <div className="max-w-md bg-black/50 p-5 rounded-xl shadow-lg group-hover:bg-black/70 transition-colors">
-                  <p className="text-cyan-300 font-semibold text-sm md:text-base mb-2">
+                <div className="max-w-md bg-gradient-to-r from-sky-50 to-green-50 p-5 rounded-xl shadow-md border border-gray-100 group-hover:shadow-lg">
+                  <p className="text-green-700 font-semibold text-sm md:text-base mb-2">
                     {event.time}
                   </p>
-                  <p className="text-gray-200 text-base md:text-lg">{event.text}</p>
+                  <p className="text-gray-800 text-base md:text-lg">{event.text}</p>
                 </div>
               </motion.div>
             ))}
