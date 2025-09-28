@@ -22,7 +22,7 @@ export default function Home() {
       <WhyInvest />
       <ContactForm />
 
-      <Amenities />
+      {/* <Amenities /> */}
       {/* <Projects />
        */}
     </div>
