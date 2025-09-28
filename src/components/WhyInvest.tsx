@@ -8,21 +8,11 @@ import { whyInvestList } from "@/data/whyInvestData";
 
 export default function WhyInvest() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showOverlay, setShowOverlay] = useState(false);
 
   const { ref, inView } = useInView({
     threshold: 0.3,
     triggerOnce: true,
   });
-
-  // Trigger overlay animation when section comes into view
-  useEffect(() => {
-    if (inView) {
-      setShowOverlay(true);
-      const timer = setTimeout(() => setShowOverlay(false), 2500);
-      return () => clearTimeout(timer);
-    }
-  }, [inView]);
 
   // Auto cycle between items
   useEffect(() => {
@@ -41,44 +31,40 @@ export default function WhyInvest() {
       <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-green-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-sky-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>
 
-      {/* Heading Overlay */}
-      <AnimatePresence>
-        {!showOverlay && (
-          <motion.div
-            className="relative z-10 text-center px-6 pt-16"
-            initial={{ opacity: 0, y: 40 }}
+      {/* Heading Section */}
+      <motion.div
+        className="relative z-10 text-center px-6 pt-16"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <motion.span
+            className="text-sky-900"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <motion.span
-                className="text-sky-900"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                Why Invest in{" "}
-              </motion.span>
-              <motion.span
-                className="text-green-600"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                Dholera?
-              </motion.span>
-            </h2>
-            <motion.p
-              className="text-gray-800 mt-3 text-lg md:text-xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1 }}
-            >
-              Key developments powering the future of India’s first smart city
-            </motion.p>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            Why Invest in{" "}
+          </motion.span>
+          <motion.span
+            className="text-green-600"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            Dholera?
+          </motion.span>
+        </h2>
+        <motion.p
+          className="text-gray-800 mt-3 text-lg md:text-xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Key developments powering the future of India’s first smart city
+        </motion.p>
+      </motion.div>
 
       {/* Slider Section */}
       <div className="relative w-full flex justify-center mt-16">

@@ -53,16 +53,26 @@ const Navbar = () => {
 
             {/* Desktop Links */}
             <div className="hidden md:flex space-x-8">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="relative font-sans text-lg text-white transition-colors duration-300 hover:text-green-400"
-                >
-                  {link.name}
-                  <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-green-400 transform scale-x-0 transition-transform duration-300 hover:scale-x-100" />
-                </Link>
-              ))}
+              {links.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className={`relative font-sans text-lg transition-colors duration-300 ${
+                      isActive ? "text-green-400" : "text-white hover:text-green-400"
+                    }`}
+                  >
+                    {link.name}
+                    {/* Underline effect */}
+                    <span
+                      className={`absolute left-0 -bottom-1 h-[2px] w-full bg-green-400 transform transition-transform duration-300 ${
+                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                      }`}
+                    />
+                  </Link>
+                );
+              })}
               <button
                 onClick={() => setOpenMap(true)}
                 className="relative font-sans text-lg text-white transition-colors duration-300 hover:text-green-400"
@@ -85,16 +95,27 @@ const Navbar = () => {
         {open && (
           <div className="md:hidden bg-black/80 backdrop-blur-lg border-t border-white/20">
             <div className="flex flex-col px-6 py-6 space-y-4">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="relative block rounded-lg px-2 py-2 text-base font-medium tracking-wide text-white hover:text-green-400 hover:bg-white/5 transition-all duration-300"
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {links.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`relative block rounded-lg px-2 py-2 text-base font-medium tracking-wide transition-all duration-300 ${
+                      isActive
+                        ? "text-green-400 bg-green-400/10"
+                        : "text-white hover:text-green-400 hover:bg-white/5"
+                    }`}
+                  >
+                    {link.name}
+                    {/* Mobile underline */}
+                    {isActive && (
+                      <span className="absolute left-0 top-0 h-full w-1 rounded-r bg-green-400" />
+                    )}
+                  </Link>
+                );
+              })}
               <button
                 onClick={() => setOpenMap(true)}
                 className="relative block rounded-lg px-2 py-2 text-left text-base font-medium tracking-wide text-white hover:text-green-400 hover:bg-white/5 transition-all duration-300"
