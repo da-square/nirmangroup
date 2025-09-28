@@ -13,11 +13,10 @@ const images = [
   "/images/hero/img3.jpg",
   "/images/hero/img7.jpg",
   "/images/hero/img4.jpg",
-   "/images/hero/image-1.png",
+  "/images/hero/image-1.png",
   "/images/hero/image-2.png",
   "/images/hero/image-3.png",
-    "/images/hero/image-4.png",
-    
+  "/images/hero/image-4.png",
 ];
 
 const Hero = () => {
@@ -25,7 +24,6 @@ const Hero = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   const handleKnowMoreClick = () => {
-    console.log("DF")
     const offeringsSection = document.getElementById("offerings");
     offeringsSection?.scrollIntoView({ behavior: "smooth" });
   };
@@ -38,7 +36,6 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // Trigger animation after load
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoaded(true);
@@ -51,7 +48,6 @@ const Hero = () => {
     <>
       {/* HERO SECTION */}
       <section className="relative flex flex-col items-center justify-center min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-20 overflow-hidden">
-
         {/* Background Images */}
         <div className="absolute inset-0 overflow-hidden">
           {images.map((src, index) => (
@@ -76,7 +72,7 @@ const Hero = () => {
         {/* Center Logo */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
           <Image
-            src="/images/header-logo.png"
+            src="/images/logo/header-logo.png"
             alt="Company Logo"
             width={220}
             height={220}
@@ -85,11 +81,9 @@ const Hero = () => {
         </div>
 
         {/* Hero Content */}
-        <div
-          className={`relative z-10 text-white ${orbitron.className} mt-[60vh] text-center`}
-        >
+        <div className={`relative z-10 text-white ${orbitron.className} mt-[60vh] text-center`}>
           {/* Floating FOMO Headline */}
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-yellow-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] animate-fadeInUp animate-floating">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold bg-gradient-to-r from-green-400 to-green-600 bg-clip-text text-transparent drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] animate-fadeInUp animate-floating">
             The Future Won’t Wait — Secure Your Place Before It’s Gone!
           </h2>
         </div>

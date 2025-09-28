@@ -6,9 +6,12 @@ import { offerings } from "@/data/offerings";
 const Offerings = () => {
   return (
     <section
-      className="relative w-full px-4 sm:px-8 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-sky-100 via-green-50 to-sky-200 overflow-hidden ash1-theme"
+      className="relative w-full px-4 sm:px-8 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-sky-200 via-green-100 to-sky-300 overflow-hidden ash1-theme"
       id="offerings"
     >
+      {/* Top Gradient Overlay to blend with previous section */}
+      <div className="absolute top-0 left-0 w-full h-48 bg-gradient-to-b from-sky-100 via-green-50 to-transparent -z-10"></div>
+
       {/* Decorative background blurs */}
       <div className="absolute top-0 left-0 w-[450px] h-[450px] bg-green-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>

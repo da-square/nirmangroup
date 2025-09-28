@@ -21,21 +21,21 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [openMap, setOpenMap] = useState(false);
 
-  // Detect scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // initial check
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <>
       <nav
-        className={`fixed top-0 w-full h-[12%] z-50 transition-all duration-500 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-500 backdrop-blur-md ${
           scrolled
-            ? "bg-gradient-to-r from-gray-900 via-gray-800 to-black"
+            ? "bg-gradient-to-r from-green-400/80 via-green-300/60 to-sky-400/80 border-b border-white/20"
             : "bg-transparent"
         }`}
       >
@@ -46,7 +46,6 @@ const Navbar = () => {
               <Image
                 src="/images/logo/header-logo.png"
                 alt="Logo"
-                className=""
                 width={96}
                 height={96}
               />
@@ -58,26 +57,15 @@ const Navbar = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative font-sans text-lg transition-colors duration-300 ${
-                    pathname === link.href
-                      ? "text-yellow-400"
-                      : "text-gray-200 hover:text-yellow-300"
-                  }`}
+                  className="relative font-sans text-lg text-white transition-colors duration-300 hover:text-green-400"
                 >
                   {link.name}
-                  {/* Underline effect */}
-                  <span
-                    className={`absolute left-0 -bottom-1 h-[2px] w-full bg-yellow-400 transform scale-x-0 transition-transform duration-300 ${
-                      pathname === link.href
-                        ? "scale-x-100"
-                        : "hover:scale-x-100"
-                    }`}
-                  />
+                  <span className="absolute left-0 -bottom-1 h-[2px] w-full bg-green-400 transform scale-x-0 transition-transform duration-300 hover:scale-x-100" />
                 </Link>
               ))}
               <button
                 onClick={() => setOpenMap(true)}
-                className="relative font-sans text-lg transition-colors duration-300 text-gray-200 hover:text-yellow-300"
+                className="relative font-sans text-lg text-white transition-colors duration-300 hover:text-green-400"
               >
                 View City Map
               </button>
@@ -85,7 +73,7 @@ const Navbar = () => {
 
             {/* Mobile Hamburger */}
             <button
-              className="md:hidden text-gray-200 hover:text-yellow-400"
+              className="text-white md:hidden hover:text-green-400"
               onClick={() => setOpen(!open)}
             >
               {open ? <X size={28} /> : <Menu size={28} />}
@@ -95,31 +83,21 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {open && (
-          <div className="md:hidden bg-black/95 backdrop-blur-lg border-t border-gray-800">
+          <div className="md:hidden bg-black/80 backdrop-blur-lg border-t border-white/20">
             <div className="flex flex-col px-6 py-6 space-y-4">
               {links.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
-                  className={`relative block rounded-lg px-2 py-2 text-base font-medium tracking-wide transition-all duration-300
-            ${
-              pathname === link.href
-                ? "bg-yellow-400/10 text-yellow-400"
-                : "text-gray-300 hover:text-yellow-300 hover:bg-white/5"
-            }`}
+                  className="relative block rounded-lg px-2 py-2 text-base font-medium tracking-wide text-white hover:text-green-400 hover:bg-white/5 transition-all duration-300"
                 >
                   {link.name}
-
-                  {/* Active underline accent */}
-                  {pathname === link.href && (
-                    <span className="absolute left-0 top-0 h-full w-1 rounded-r bg-yellow-400"></span>
-                  )}
                 </Link>
               ))}
               <button
                 onClick={() => setOpenMap(true)}
-                className="relative block rounded-lg px-2 py-2 text-left text-base font-medium tracking-wide transition-all duration-300 text-gray-300 hover:text-yellow-300 hover:bg-white/5"
+                className="relative block rounded-lg px-2 py-2 text-left text-base font-medium tracking-wide text-white hover:text-green-400 hover:bg-white/5 transition-all duration-300"
               >
                 View City Map
               </button>
@@ -127,6 +105,7 @@ const Navbar = () => {
           </div>
         )}
       </nav>
+
       <MapModal isOpen={openMap} onClose={() => setOpenMap(false)} />
     </>
   );
