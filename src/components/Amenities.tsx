@@ -7,7 +7,7 @@ export default function Amenities() {
     return (
         <section className="py-20 bg-gray-900 text-gray-200">
             <h1 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-                Our <span className="text-yellow-400">Amenities</span>
+                Our <span className="text-green-400">Amenities</span>
             </h1>
 
             <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
