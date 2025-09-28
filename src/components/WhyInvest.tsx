@@ -1,60 +1,115 @@
 "use client";
 
-import Slider from "react-slick";
+import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { whyInvestList } from "@/data/whyInvestData";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 export default function WhyInvest() {
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2500,
-    pauseOnHover: true,
-    arrows: false,
-    responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
-    ],
-  };
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [showOverlay, setShowOverlay] = useState(false);
+
+  // Track when section is in view
+  const { ref, inView } = useInView({
+    threshold: 0.3,
+    triggerOnce: true,
+  });
+
+  // Trigger welcome overlay when section comes into view
+  useEffect(() => {
+    if (inView) {
+      setShowOverlay(true);
+      const timer = setTimeout(() => setShowOverlay(false), 2500);
+      return () => clearTimeout(timer);
+    }
+  }, [inView]);
+
+  // Auto cycle between items
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % whyInvestList.length);
+    }, 3500);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section className="py-20 bg-gray-900">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-12">
-        Why Invest In <span className="text-yellow-400">Dholera?</span>
-      </h1>
+    <section
+      ref={ref}
+      className="relative w-full min-h-screen bg-gray-900 text-white overflow-hidden"
+    >
+      {/* Overlay Animation */}
+      <AnimatePresence>
+        {!showOverlay && (
+  <motion.div
+    className="relative z-10 text-center px-6 pt-16"
+    initial={{ opacity: 0, y: 40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    <h2 className="text-3xl md:text-5xl font-bold mb-4">
+      <motion.span
+        className="text-white"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.3 }}
+      >
+        Why Invest in{" "}
+      </motion.span>
+      <motion.span
+        className="text-yellow-400"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.6 }}
+      >
+        Dholera?
+      </motion.span>
+    </h2>
 
-      <div className="max-w-7xl mx-auto px-6">
-        <Slider {...settings}>
-          {whyInvestList.map((item, index) => (
-            <div key={index} className="px-4">
-              {/* Full card with border + shadow */}
-              <div className="w-full h-[300px] flex flex-col rounded-xl overflow-hidden bg-white border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                {/* Image */}
-                <div className="w-full h-[220px] overflow-hidden">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                  />
-                </div>
+    <motion.p
+      className="text-gray-300 mt-3 text-lg md:text-xl"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, delay: 1 }}
+    >
+      Key developments powering the future of India’s first smart city
+    </motion.p>
+  </motion.div>
+)}
+      </AnimatePresence>
 
-                {/* Content */}
-                <div className="flex-1 flex items-center justify-center bg-gray-50 px-3 py-2">
-                  <p className="text-center font-semibold text-gray-800 text-sm leading-snug">
-                    {item.title}
-                  </p>
+      {/* Slider Section */}
+      {!showOverlay && (
+        <div className="relative w-full flex justify-center mt-16">
+          <div className="relative w-[90%] md:w-[80%] lg:w-[70%] h-[65vh] rounded-2xl overflow-hidden shadow-2xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={whyInvestList[activeIndex].title}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -100 }}
+                transition={{ duration: 1 }}
+                className="absolute inset-0 flex items-center justify-center"
+              >
+                {/* Background Image */}
+                <Image
+                  src={whyInvestList[activeIndex].img}
+                  alt={whyInvestList[activeIndex].title}
+                  fill
+                  className="object-cover brightness-75"
+                />
+
+                {/* Overlay Info */}
+                <div className="absolute bottom-10 left-10 bg-black/60 backdrop-blur-md p-6 rounded-xl max-w-lg shadow-lg">
+                  <h2 className="text-2xl md:text-4xl font-bold text-cyan-300">
+                    {whyInvestList[activeIndex].title}
+                  </h2>
                 </div>
-              </div>
-            </div>
-          ))}
-        </Slider>
-      </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

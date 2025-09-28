@@ -9,12 +9,15 @@ const orbitron = Orbitron({
 });
 
 const images = [
-  "/images/day.jpg",
-  "/images/sunset.jpg",
-  "/images/place.png",
-  "/images/img3.jpg",
-  "/images/img7.jpg",
-  "/images/img4.jpg",
+  "/images/hero/place.png",
+  "/images/hero/img3.jpg",
+  "/images/hero/img7.jpg",
+  "/images/hero/img4.jpg",
+   "/images/hero/image-1.png",
+  "/images/hero/image-2.png",
+  "/images/hero/image-3.png",
+    "/images/hero/image-4.png",
+    
 ];
 
 const Hero = () => {

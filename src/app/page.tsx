@@ -16,7 +16,7 @@ export default function Home() {
     <div className="bg-gray-900 text-white">
       <Hero />
       <Stats />
-      <FutureCityExperience  />
+      <FutureCityExperience />
       <Offerings />
       <ProjectsSection />
       <WhyInvest />
