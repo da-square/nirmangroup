@@ -85,7 +85,7 @@ export default function FutureCityExperience() {
             transition={{ duration: 1 }}
           >
             <motion.h1
-              className="text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg"
+              className="text-5xl md:text-6xl font-extrabold text-green-600 drop-shadow-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
