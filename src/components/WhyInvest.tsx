@@ -57,7 +57,7 @@ export default function WhyInvest() {
         Why Invest in{" "}
       </motion.span>
       <motion.span
-        className="text-yellow-400"
+        className="text-green-500"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.6 }}
