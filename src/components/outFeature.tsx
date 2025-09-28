@@ -10,27 +10,27 @@ const zones = [
     id: "residential",
     title: "Residential Lifestyle",
     desc: "Morning jogs in lush parks, family balconies with futuristic skyline views.",
-    stories: ["/images/res1.png", "/images/res2.png", "/images/res3.png"],
+    stories: ["/images/ourFeatures/res1.png", "/images/ourFeatures/res2.png", "/images/ourFeatures/res3.png"],
   },
   {
     id: "commercial",
     title: "Commercial Hub",
     desc: "Smart offices, buzzing co-working, futuristic business vibe.",
-    stories: ["/images/commer1.png", "/images/commer2.png", "/images/commer3.png"],
+    stories: ["/images/ourFeatures/commer1.png", "/images/ourFeatures/commer2.png", "/images/ourFeatures/commer3.png"],
   },
   {
     id: "recreational",
     title: "Recreational Spaces",
     desc: "Cafes, malls, nightlife plazas — the city comes alive at night.",
-    stories: ["/images/rect1.png", "/images/rect2.png", "/images/rect3.png"],
+    stories: ["/images/ourFeatures/rect1.png", "/images/ourFeatures/rect2.png", "/images/ourFeatures/rect3.png"],
   },
 ];
 
 const timeline = [
-  { time: "6 AM", text: "Morning jog in the green park 🌳", img: "/images/jog.png" },
-  { time: "10 AM", text: "Smart office lifestyle 🏢", img: "/images/office.png" },
-  { time: "6 PM", text: "Evening coffee in the futuristic plaza ☕", img: "/images/cafe.png" },
-  { time: "9 PM", text: "Balcony view of neon skyline 🌃", img: "/images/nightview.png" },
+  { time: "6 AM", text: "Morning jog in the green park 🌳", img: "/images/ourFeatures/jog.png" },
+  { time: "10 AM", text: "Smart office lifestyle 🏢", img: "/images/ourFeatures/office.png" },
+  { time: "6 PM", text: "Evening coffee in the futuristic plaza ☕", img: "/images/ourFeatures/cafe.png" },
+  { time: "9 PM", text: "Balcony view of neon skyline 🌃", img: "/images/ourFeatures/nightview.png" },
 ];
 
 export default function FutureCityExperience() {
@@ -161,7 +161,6 @@ export default function FutureCityExperience() {
           </div>
         </div>
       )}
-
       {/* Enhanced Day in the Life */}
       {!showOverlay && inView && (
         <div className="mt-28 px-6 max-w-6xl mx-auto relative z-10">
