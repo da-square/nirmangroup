@@ -20,10 +20,10 @@ export const whyInvestList: WhyInvestItem[] = [
   },
   {
     title: "Mono Rail Connectivity",
-    img: "/images/whyInvest/Mono-Rail-Connectivity.png",
+    img: "/images/whyInvest/Mono-Rail-Connectivity.jpg",
   },
   {
     title: "Tata Solar Power Plant Of 5000MW",
-    img: "/images/whyInvest/Tata-Solar.jpeg",
+    img: "/images/whyInvest/Tata-Solar.png",
   },
 ];
