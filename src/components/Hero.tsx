@@ -9,20 +9,23 @@ const orbitron = Orbitron({
 });
 
 const images = [
-  "/images/hero/day.png",
-  "/images/hero/sunset.png",
-  "/images/hero/night.png",
   "/images/hero/place.png",
-];
-const listItems = [
-  "New tech capital of India",
-  "City of Endless Possibilities",
-  "A City for Every Dream",
+  "/images/hero/img3.jpg",
+  "/images/hero/img7.jpg",
+  "/images/hero/img4.jpg",
+   "/images/hero/image-1.png",
+  "/images/hero/image-2.png",
+  "/images/hero/image-3.png",
+    "/images/hero/image-4.png",
+    
 ];
 
 const Hero = () => {
   const [stage, setStage] = useState(0);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const handleKnowMoreClick = () => {
+    console.log("DF")
     const offeringsSection = document.getElementById("offerings");
     offeringsSection?.scrollIntoView({ behavior: "smooth" });
   };
@@ -35,10 +38,20 @@ const Hero = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Trigger animation after load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       {/* HERO SECTION */}
-      <section className="relative flex flex-col items-start justify-center min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-20 space-y-6 overflow-hidden">
+      <section className="relative flex flex-col items-center justify-center min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-20 overflow-hidden">
+
         {/* Background Images */}
         <div className="absolute inset-0 overflow-hidden">
           {images.map((src, index) => (
@@ -48,65 +61,42 @@ const Hero = () => {
               alt="Hero background"
               fill
               priority
-              className={`object-cover transition-opacity duration-[1500ms] ease-in-out ${
+              className={`object-cover transition-all duration-[1500ms] ease-in-out ${
                 stage === index ? "opacity-100" : "opacity-0"
+              } ${
+                isLoaded
+                  ? "blur-0 brightness-100 scale-100"
+                  : "blur-2xl brightness-75 scale-110"
               }`}
             />
           ))}
           <div className="absolute inset-0 bg-black/40" />
         </div>
 
+        {/* Center Logo */}
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <Image
+            src="/images/header-logo.png"
+            alt="Company Logo"
+            width={220}
+            height={220}
+            className="drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)] animate-logoPop"
+          />
+        </div>
+
         {/* Hero Content */}
-        <div className={`relative z-10 text-white ${orbitron.className}`}>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-wide drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] animate-fadeInDown">
-            Discover What
-          </h1>
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-extrabold tracking-wide text-blue-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] animate-fadeInUp">
-            We’re Building
-          </h1>
-
-          <ul className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
-            {listItems.map((item, idx) => (
-              <li
-                key={idx}
-                className="text-base sm:text-lg md:text-2xl font-semibold text-gray-200 opacity-0 animate-fadeInStagger hover:text-yellow-300 transition-colors"
-                style={{ animationDelay: `${idx * 400}ms` }}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          {/* Investment Line */}
-          <p className="mt-6 sm:mt-8 text-lg sm:text-xl md:text-2xl font-bold text-gray-100 drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)] animate-fadeInUp">
-            Smart investments start at just{" "}
-            <span className="text-yellow-300 animate-pulse">₹8.65 Lakhs</span>{" "}
-            for <span className="text-blue-300">residential plots</span> &{" "}
-            <span className="text-yellow-300 animate-pulse">₹27.80 Lakhs</span>{" "}
-            for <span className="text-pink-300">semi-commercial spaces</span>.
-          </p>
-
-          <button
-            onClick={handleKnowMoreClick}
-            className="px-6 py-3 sm:px-8 sm:py-4 mt-8 sm:mt-10 text-base sm:text-lg md:text-xl font-bold rounded-3xl shadow-xl bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 text-white hover:opacity-90 transition-opacity duration-300"
-          >
-            Know More
-          </button>
+        <div
+          className={`relative z-10 text-white ${orbitron.className} mt-[60vh] text-center`}
+        >
+          {/* Floating FOMO Headline */}
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-yellow-300 drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)] animate-fadeInUp animate-floating">
+            The Future Won’t Wait — Secure Your Place Before It’s Gone!
+          </h2>
         </div>
       </section>
 
       {/* ANIMATIONS */}
       <style jsx global>{`
-        @keyframes fadeInDown {
-          from {
-            opacity: 0;
-            transform: translateY(-30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
         @keyframes fadeInUp {
           from {
             opacity: 0;
@@ -117,24 +107,35 @@ const Hero = () => {
             transform: translateY(0);
           }
         }
-        @keyframes fadeInStagger {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
+        @keyframes floating {
+          0% {
+            transform: translateY(0px);
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          50% {
+            transform: translateY(-10px);
+          }
+          100% {
+            transform: translateY(0px);
           }
         }
-        .animate-fadeInDown {
-          animation: fadeInDown 1s ease forwards;
+        @keyframes logoPop {
+          0% {
+            transform: scale(0.8);
+            opacity: 0;
+          }
+          100% {
+            transform: scale(1);
+            opacity: 1;
+          }
         }
         .animate-fadeInUp {
           animation: fadeInUp 1s ease forwards;
         }
-        .animate-fadeInStagger {
-          animation: fadeInStagger 1s ease forwards;
+        .animate-floating {
+          animation: floating 3s ease-in-out infinite;
+        }
+        .animate-logoPop {
+          animation: logoPop 1s ease forwards;
         }
       `}</style>
     </>
