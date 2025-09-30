@@ -10,6 +10,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import Stats from "@/components/Stats";
 import WhyInvest from "@/components/WhyInvest";
 import Offerings from "@/components/Offerings";
+import GiantsCarousel from "@/components/GiantsCarousel";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <FutureCityExperience />
       <Offerings />
       <ProjectsSection />
+      <GiantsCarousel />
       <WhyInvest />
       <ContactForm />
 
