@@ -23,8 +23,8 @@ export default function ContactFormModal() {
   useEffect(() => {
     // Open modal automatically on first visit
     const timer = setTimeout(() => {
-      setIsOpen(true);
-      setTimeout(() => setAnimate(true), 50);
+        setIsOpen(true);
+        setTimeout(() => setAnimate(true), 50);
     }, 2000); // show after 2 seconds
 
     return () => clearTimeout(timer);
@@ -66,6 +66,7 @@ export default function ContactFormModal() {
         <button
           onClick={handleClose}
           className="absolute top-3 right-3 text-white hover:text-green-300 text-2xl"
+          aria-label="Close contact form"
         >
           ✕
         </button>

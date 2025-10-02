@@ -17,7 +17,9 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -28,16 +30,23 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-400 via-sky-400 to-blue-500 flex items-center justify-center p-6">
-      <div className="w-full max-w-lg bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/10 shadow-[0_0_40px_rgba(34,197,94,0.4),0_0_40px_rgba(56,189,248,0.4)]">
-        <h2 className="text-2xl font-bold text-center mb-6 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-green-400 via-sky-400 to-blue-500 
+                flex items-center justify-center p-6">
+ <div className=" flex items-center justify-center bg-black/60 rounded-2xl">
+      <div
+        className={`w-full max-w-lg bg-white/10 backdrop-blur-xl
+          rounded-2xl p-8 border border-white/20
+          relative transform transition-all duration-500
+          shadow-[0_0_40px_rgba(34,197,94,0.4),0_0_40px_rgba(56,189,248,0.4)]`}
+      >
+         <h2 className="text-2xl font-bold text-center mb-6 text-white">
           Get Started with{" "}
-          <span className="bg-gradient-to-r from-green-600 to-sky-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-green-400 to-sky-400 bg-clip-text text-transparent">
             Dholera Nirman Group
           </span>
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+         <form onSubmit={handleSubmit} className="space-y-8">
           {[
             { id: "name", type: "text", label: "Full Name" },
             { id: "email", type: "email", label: "Email ID" },
@@ -50,46 +59,48 @@ export default function ContactPage() {
                 name={field.id}
                 value={(formData as any)[field.id]}
                 onChange={handleChange}
-                className="peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-transparent focus:outline-none transition"
+                className="peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none transition focus:border-transparent"
                 placeholder=" "
                 required
               />
-              {/* Gradient underline always visible */}
-              <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-green-400 to-sky-400 scale-x-100 origin-left"></div>
-
+              <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-green-400 to-sky-400 scale-x-0 peer-focus:scale-x-100 transition-transform origin-left"></div>
               <label
                 htmlFor={field.id}
-                className="absolute left-3 top-2 text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-sky-600 text-sm transition-all
-                        peer-placeholder-shown:top-5 peer-placeholder-shown:text-base
-                        peer-focus:top-2 peer-focus:text-sm"
+                className="absolute left-3 top-2 text-gray-400 text-sm transition-all
+                           peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-500 
+                           peer-placeholder-shown:text-base 
+                           peer-focus:top-2 peer-focus:bg-gradient-to-r peer-focus:from-green-400 peer-focus:to-sky-400 peer-focus:bg-clip-text peer-focus:text-transparent peer-focus:text-sm"
               >
                 {field.label}
               </label>
             </div>
           ))}
 
-          <div className="relative group">
+          {/* Message textarea */}
+         <div className="relative group">
             <textarea
               id="message"
               name="message"
-              rows={4}
+              rows={3}
               value={formData.message}
               onChange={handleChange}
-              className="peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-transparent focus:outline-none transition resize-none"
+              className="peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none transition resize-none focus:border-transparent"
               placeholder=" "
               required
             />
-            <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-green-600 to-sky-600 scale-x-100 origin-left"></div>
+            <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-green-400 to-sky-400 scale-x-0 peer-focus:scale-x-100 transition-transform origin-left"></div>
             <label
               htmlFor="message"
-              className="absolute left-3 top-2 text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-sky-600 text-sm transition-all
-                        peer-placeholder-shown:top-5 peer-placeholder-shown:text-base
-                        peer-focus:top-2 peer-focus:text-sm"
+              className="absolute left-3 top-2 text-gray-400 text-sm transition-all
+                         peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-500 
+                         peer-placeholder-shown:text-base 
+                         peer-focus:top-2 peer-focus:bg-gradient-to-r peer-focus:from-green-400 peer-focus:to-sky-400 peer-focus:bg-clip-text peer-focus:text-transparent peer-focus:text-sm"
             >
               Your Message
             </label>
           </div>
 
+          {/* Submit button */}
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-green-400 to-sky-400 hover:from-green-500 hover:to-sky-500 text-white font-semibold py-3 rounded-lg shadow-[0_0_25px_rgba(34,197,94,0.6),0_0_25px_rgba(56,189,248,0.6)] transition transform hover:scale-105 relative overflow-hidden"
@@ -100,5 +111,7 @@ export default function ContactPage() {
         </form>
       </div>
     </div>
+                </div>
+   
   );
 }
