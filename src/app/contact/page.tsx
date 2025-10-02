@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
@@ -17,9 +18,7 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -30,88 +29,121 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-400 via-sky-400 to-blue-500 
-                flex items-center justify-center p-6">
- <div className=" flex items-center justify-center bg-black/60 rounded-2xl">
-      <div
-        className={`w-full max-w-lg bg-white/10 backdrop-blur-xl
-          rounded-2xl p-8 border border-white/20
-          relative transform transition-all duration-500
-          shadow-[0_0_40px_rgba(34,197,94,0.4),0_0_40px_rgba(56,189,248,0.4)]`}
-      >
-         <h2 className="text-2xl font-bold text-center mb-6 text-white">
-          Get Started with{" "}
-          <span className="bg-gradient-to-r from-green-400 to-sky-400 bg-clip-text text-transparent">
-            Dholera Nirman Group
-          </span>
-        </h2>
+    <div className="min-h-screen bg-gradient-to-br from-sky-200 via-green-100 to-sky-300 text-gray-800 flex flex-col items-center justify-start py-16 px-4">
+      <h1 className="text-4xl font-bold text-green-800 mb-12 mt-5">Contact Us</h1>
 
-         <form onSubmit={handleSubmit} className="space-y-8">
-          {[
-            { id: "name", type: "text", label: "Full Name" },
-            { id: "email", type: "email", label: "Email ID" },
-            { id: "phone", type: "tel", label: "Phone Number" },
-          ].map((field) => (
-            <div key={field.id} className="relative group">
-              <input
-                type={field.type}
-                id={field.id}
-                name={field.id}
-                value={(formData as any)[field.id]}
-                onChange={handleChange}
-                className="peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none transition focus:border-transparent"
-                placeholder=" "
-                required
-              />
-              <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-green-400 to-sky-400 scale-x-0 peer-focus:scale-x-100 transition-transform origin-left"></div>
-              <label
-                htmlFor={field.id}
-                className="absolute left-3 top-2 text-gray-400 text-sm transition-all
-                           peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-500 
-                           peer-placeholder-shown:text-base 
-                           peer-focus:top-2 peer-focus:bg-gradient-to-r peer-focus:from-green-400 peer-focus:to-sky-400 peer-focus:bg-clip-text peer-focus:text-transparent peer-focus:text-sm"
-              >
-                {field.label}
+      <div className="w-full max-w-6xl flex flex-col lg:flex-row gap-8">
+        {/* Form Section - Left Side on Large Screens */}
+        <div className="w-full lg:w-1/2 from-sky-400 via-green-500 to-sky-500 text-gray-800 backdrop-blur-sm shadow-lg rounded-2xl p-8">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Full Name */}
+            <div className="flex flex-col">
+              <label htmlFor="name" className="text-gray-700 font-medium mb-2">
+                Full Name
               </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400"
+                placeholder="Enter your full name"
+              />
             </div>
-          ))}
 
-          {/* Message textarea */}
-         <div className="relative group">
-            <textarea
-              id="message"
-              name="message"
-              rows={3}
-              value={formData.message}
-              onChange={handleChange}
-              className="peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none transition resize-none focus:border-transparent"
-              placeholder=" "
-              required
-            />
-            <div className="absolute left-0 bottom-0 w-full h-[2px] bg-gradient-to-r from-green-400 to-sky-400 scale-x-0 peer-focus:scale-x-100 transition-transform origin-left"></div>
-            <label
-              htmlFor="message"
-              className="absolute left-3 top-2 text-gray-400 text-sm transition-all
-                         peer-placeholder-shown:top-5 peer-placeholder-shown:text-gray-500 
-                         peer-placeholder-shown:text-base 
-                         peer-focus:top-2 peer-focus:bg-gradient-to-r peer-focus:from-green-400 peer-focus:to-sky-400 peer-focus:bg-clip-text peer-focus:text-transparent peer-focus:text-sm"
+            {/* Email */}
+            <div className="flex flex-col">
+              <label htmlFor="email" className="text-gray-700 font-medium mb-2">
+                Email ID
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400"
+                placeholder="Enter your email"
+              />
+            </div>
+
+            {/* Phone Number */}
+            <div className="flex flex-col">
+              <label htmlFor="phone" className="text-gray-700 font-medium mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400"
+                placeholder="Enter your phone number"
+              />
+            </div>
+
+            {/* Message */}
+            <div className="flex flex-col">
+              <label htmlFor="message" className="text-gray-700 font-medium mb-2">
+                Your Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows={6}
+                value={formData.message}
+                onChange={handleChange}
+                required
+                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400 resize-y"
+                placeholder="Type your message here"
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              className="w-full bg-gradient-to-r from-green-400 to-sky-400 hover:from-green-500 hover:to-sky-500 text-white font-semibold py-3 rounded-lg shadow-md transition-transform hover:scale-105"
             >
-              Your Message
-            </label>
-          </div>
+              Submit
+            </button>
+          </form>
+        </div>
 
-          {/* Submit button */}
-          <button
-            type="submit"
-            className="w-full bg-gradient-to-r from-green-400 to-sky-400 hover:from-green-500 hover:to-sky-500 text-white font-semibold py-3 rounded-lg shadow-[0_0_25px_rgba(34,197,94,0.6),0_0_25px_rgba(56,189,248,0.6)] transition transform hover:scale-105 relative overflow-hidden"
-          >
-            <span className="relative z-10">Submit</span>
-            <div className="absolute inset-0 bg-white/20 blur-sm opacity-0 hover:opacity-30 transition"></div>
-          </button>
-        </form>
+        {/* Company Info Section - Right Side on Large Screens */}
+        <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center">
+          <h2 className="text-4xl font-bold text-green-800 mb-4 text-center lg:text-left">
+            Dholera Nirman Group
+          </h2>
+          <p className="text-gray-700 mb-6 leading-relaxed text-center lg:text-left text-xl">
+            Dholera Nirman Group stands at the forefront of real estate development, specializing in the acquisition and sale of premium residential plots.
+          </p>
+          <div className="space-y-4">
+            <div className="flex items-center space-x-3">
+              <span className="text-green-600 font-semibold">📞</span>
+              <a
+                href="tel:+919998842046"
+                className="text-gray-800 hover:text-green-600 transition text-md font-medium"
+              >
+                +91-9998842046
+              </a>
+            </div>
+            <div className="flex items-center space-x-3">
+              <span className="text-green-600 font-semibold">✉️</span>
+              <a
+                href="mailto:info@dholeranirmangroup.com"
+                className="text-gray-800 hover:text-green-600 transition text-md font-medium break-all"
+              >
+                info@dholeranirmangroup.com
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-                </div>
-   
   );
 }
