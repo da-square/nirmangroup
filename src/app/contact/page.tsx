@@ -30,7 +30,7 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-200 via-green-100 to-sky-300 text-gray-800 flex flex-col items-center justify-start py-16 px-4">
-      <h1 className="text-4xl font-bold text-green-800 mb-12 mt-5">Contact Us</h1>
+      <h1 className="text-4xl font-bold text-green-600 mb-12 mt-5">Contact Us</h1>
 
       <div className="w-full max-w-6xl flex flex-col lg:flex-row gap-8">
         {/* Form Section - Left Side on Large Screens */}
@@ -116,7 +116,7 @@ export default function ContactPage() {
 
         {/* Company Info Section - Right Side on Large Screens */}
         <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center">
-          <h2 className="text-4xl font-bold text-green-800 mb-4 text-center lg:text-left">
+          <h2 className="text-4xl font-bold text-green-600 mb-4 text-center lg:text-left">
             Dholera Nirman Group
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed text-center lg:text-left text-xl">
