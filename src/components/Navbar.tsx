@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
@@ -30,11 +31,14 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Show gradient if scrolled OR if route is not home/empty
+  const showGradient = scrolled || (pathname !== "/" && pathname !== "");
+
   return (
     <>
       <nav
         className={`fixed top-0 w-full z-50 transition-all duration-500 backdrop-blur-md ${
-          scrolled
+          showGradient
             ? "bg-gradient-to-r from-green-400/80 via-green-300/60 to-sky-400/80 border-b border-white/20"
             : "bg-transparent"
         }`}
@@ -60,14 +64,18 @@ const Navbar = () => {
                     key={link.href}
                     href={link.href}
                     className={`relative font-sans text-lg transition-colors duration-300 ${
-                      isActive ? "text-green-400" : "text-white hover:text-green-400"
+                      isActive
+                        ? "text-green-400"
+                        : "text-white hover:text-green-400"
                     }`}
                   >
                     {link.name}
                     {/* Underline effect */}
                     <span
                       className={`absolute left-0 -bottom-1 h-[2px] w-full bg-green-400 transform transition-transform duration-300 ${
-                        isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                        isActive
+                          ? "scale-x-100"
+                          : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
                   </Link>
