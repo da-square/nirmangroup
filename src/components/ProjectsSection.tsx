@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/projectsData";
+import Link from "next/link";
 
 const ProjectsSection = () => {
   const [active, setActive] = useState(0);
@@ -62,9 +63,15 @@ const ProjectsSection = () => {
                 <h3 className="text-lg sm:text-xl md:text-3xl font-semibold text-green-600">
                   {projects[active].name}
                 </h3>
-                <p className="text-gray-800 text-sm sm:text-base md:text-lg mt-1">
+                {/* <p className="text-gray-800 text-sm sm:text-base md:text-lg mt-1">
                   {projects[active].description}
-                </p>
+                </p> */}
+                <Link
+                  href={`/projects/${projects[active].id}`}
+                  className="font-semibold text-green-600 hover:text-sky-700 transition-colors mt-2 inline-block"
+                >
+                  Click here for more details →
+                </Link>
               </div>
             </div>
 

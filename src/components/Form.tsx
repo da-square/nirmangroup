@@ -65,7 +65,7 @@ export default function ContactFormModal() {
       >
         <button
           onClick={handleClose}
-          className="absolute top-3 right-3 text-white hover:text-green-300 text-2xl"
+          className="cursor-pointer absolute top-3 right-3 text-white hover:text-green-300 text-2xl"
           aria-label="Close contact form"
         >
           ✕
