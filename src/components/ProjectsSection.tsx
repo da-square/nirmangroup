@@ -52,7 +52,7 @@ const ProjectsSection = () => {
                       src={projects[active].images[0]}
                       alt={projects[active].name}
                       fill
-                      className="object-cover rounded-2xl"
+                      className="object-fit rounded-2xl"
                     />
                   </motion.div>
                 </motion.div>
@@ -91,7 +91,7 @@ const ProjectsSection = () => {
                     src={p.images[0]}
                     alt={p.name}
                     fill
-                    className="object-cover rounded-xl"
+                    className="object-fit rounded-xl"
                   />
                   <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition rounded-xl" />
                 </button>

@@ -76,7 +76,7 @@ export default function ProjectImageSlider({
                 src={src}
                 alt={`${project.name} image ${i + 1}`}
                 fill
-                className="object-contain w-full h-full"
+                className="object-fit w-full h-full"
                 sizes="100vw"
                 priority={i === 0}
               />

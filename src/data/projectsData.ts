@@ -19,7 +19,12 @@ A total of 245 plots available, including 7 semi-commercial and 238 residential 
 Wide 12-meter central spine entry road and 7.5-meter connecting roads within THE Regalia
 project.
     `,
-    images: ["/images/projects/earth/logo.jpg"],
+    images: [
+      "/images/projects/earth/logo.jpg",
+      "/images/projects/earth/11.jpg",
+      "/images/projects/earth/12.jpg",
+      "/images/projects/earth/13.jpg",
+    ],
   },
   {
     id: "the_palm_trees",
