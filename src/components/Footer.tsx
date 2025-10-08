@@ -10,12 +10,13 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import { socialLinks } from "@/data/socialLinks ";
 
-const socialLinks = [
-  { href: "#", icon: Facebook },
+const socialMediaLinks = [
+  { href: socialLinks.facebook, icon: Facebook },
+  { href: socialLinks.linkedin, icon: Linkedin },
+  { href: socialLinks.instagram, icon: Instagram },
   { href: "#", icon: Twitter },
-  { href: "#", icon: Linkedin },
-  { href: "#", icon: Instagram },
 ];
 
 export default function Footer() {
@@ -80,10 +81,12 @@ export default function Footer() {
         <div className="flex-1 text-center md:text-left">
           <h3 className="text-lg font-bold text-sky-100 mb-6">Follow Us</h3>
           <div className="flex justify-center md:justify-start space-x-4">
-            {socialLinks.map(({ href, icon: Icon }, idx) => (
+            {socialMediaLinks.map(({ href, icon: Icon }, idx) => (
               <a
                 key={idx}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-sky-400 hover:bg-sky-300 hover:text-black transition-colors shadow-md"
               >
                 <Icon className="h-5 w-5" />
