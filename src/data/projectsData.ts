@@ -1,3 +1,13 @@
+import {
+  MapPin,
+  BusFront,
+  Building2,
+  Plane,
+  Waves,
+  TrainTrack,
+  Landmark,
+} from "lucide-react";
+
 export const projects = [
   {
     id: "the_earth",
@@ -86,59 +96,74 @@ project.
 
 export const locationAdvantages = [
   {
+    icon: MapPin,
     title: "In the Vicinity of 200-year-old Kamiyaladham Temple",
     description:
       "Located just 5 km away, offering proximity to the historic Kamiyaladham Temple.",
     distance: "5 KM",
-    image: "/images/projects/earth/logo.jpg",
   },
   {
+    icon: BusFront,
     title: "Govt. Existing Road Touch Entry",
     description:
       "NA, NOC, Title clear project located near the Vadodara Bhavnagar Highway for excellent connectivity.",
     distance: "5 KM",
-    image: "/images/projects/earth/logo.jpg",
   },
   {
+    icon: Plane,
     title: "Dholera International Airport Circle",
     description:
       "Just 10 minutes away from the upcoming Dholera International Airport Circle.",
     distance: "10 MIN",
-    image: "/images/projects/earth/logo.jpg",
   },
   {
+    icon: Waves,
     title: "Artificial River / Canal Front",
     description:
       "A scenic 15-minute drive to the beautiful Artificial River and Canal Front area.",
     distance: "15 MIN",
-    image: "/images/projects/earth/logo.jpg",
   },
   {
+    icon: BusFront,
     title: "Ahmedabad–Dholera Express Highway",
     description:
       "Only 10 km away from the Ahmedabad–Dholera Express Highway, ensuring smooth travel access.",
     distance: "10 KM",
-    image: "/images/projects/earth/logo.jpg",
   },
   {
+    icon: TrainTrack,
     title: "Mono Rail Pipli Junction",
     description:
       "Situated 10 km away from the Mono Rail Pipli Junction for fast intra-city connectivity.",
     distance: "10 KM",
-    image: "/images/projects/earth/logo.jpg",
   },
   {
+    icon: Landmark,
     title: "Dholera SIR Entry",
     description:
       "Just 15 minutes away from Dholera SIR Entry, offering strategic access to the smart city zone.",
     distance: "15 MIN",
-    image: "/images/projects/earth/logo.jpg",
   },
   {
+    icon: Building2,
     title: "Lothal Museum",
     description:
       "15 minutes from the ancient archaeological site and museum of Lothal.",
     distance: "15 MIN",
-    image: "/images/projects/earth/logo.jpg",
   },
+];
+
+export const amenities = [
+  { icon: "🏊‍♂️", title: "Swimming Pool" },
+  { icon: "🏋️‍♀️", title: "Fitness Center" },
+  { icon: "🛡️", title: "24x7 Security" },
+  { icon: "🏠", title: "Club House" },
+  { icon: "👶", title: "Kids Play Area" },
+  { icon: "🏫", title: "International School Nearby" },
+  { icon: "🏥", title: "Healthcare Facilities" },
+  { icon: "🛣️", title: "Smart Road Connectivity" },
+  { icon: "🚆", title: "Metro & Railway Access" },
+  { icon: "🏢", title: "Commercial Plaza" },
+  { icon: "♻️", title: "Waste Management System" },
+  { icon: "🎭", title: "Community Event Hall" },
 ];
