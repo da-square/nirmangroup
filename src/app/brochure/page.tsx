@@ -41,20 +41,20 @@ const BroucherPage = () => {
             minHeight={400}
             maxHeight={700}
             maxShadowOpacity={0.5}
-            showCover={true}
+            showCover={false}
             mobileScrollSupport={true}
             className="shadow-2xl rounded-2xl"
             style={{}}
             startPage={0}
             drawShadow={true}
-            flippingTime={600}  // smooth flip
+            flippingTime={900}  // smooth flip
             usePortrait={false}
             startZIndex={0}
             autoSize={true}
             clickEventForward={true}
             useMouseEvents={true}
             swipeDistance={30}
-            showPageCorners={true}
+            showPageCorners={false}
             disableFlipByClick={false}
           >
             {pdfPages.map((page, idx) => (

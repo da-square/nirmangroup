@@ -27,14 +27,15 @@ const zones = [
 ];
 
 const timeline = [
-  { time: "6 AM", text: "Morning jog in the green park 🌳", img: "/images/ourFeatures/jog.png" },
-  { time: "10 AM", text: "Smart office lifestyle 🏢", img: "/images/ourFeatures/office.png" },
-  { time: "6 PM", text: "Evening coffee in the futuristic plaza ☕", img: "/images/ourFeatures/cafe.png" },
-  { time: "9 PM", text: "Balcony view of neon skyline 🌃", img: "/images/ourFeatures/nightview.png" },
+  {  text: "The Earth", img: "/images/projects/earth/13.jpg" },
+  {  text: "The Meridian", img: "/images/projects/meridian/14.jpg" },
+  {  text: "Palm Tree", img: "/images/projects/palm-trees/Scene 25_1.png" },
+  {  text: "Regalia", img: "/images/projects/regalia/14.jpg" },
+    {  text: "Velavadar Exotica", img: "/images/projects/velavadar-exotica/12.png" },
 ];
 
 export default function FutureCityExperience() {
-  const [activeZone, setActiveZone] = useState<number>(0);
+  const [activeZone, setActiveZone] = useState<number>(0);`1`
   const [activeImage, setActiveImage] = useState<number>(0);
   const [showOverlay, setShowOverlay] = useState(true);
 
@@ -144,47 +145,51 @@ export default function FutureCityExperience() {
         </div>
       )}
 
-      {/* Timeline */}
-      {!showOverlay && inView && (
-        <div className="mt-28 px-6 max-w-6xl mx-auto relative z-10">
-          <h3 className="text-3xl md:text-5xl font-bold text-center text-sky-800 mb-16">
-            A Day in the Life 🌍
-          </h3>
-          <div className="relative border-l-2 border-green-400 ml-6">
-            {timeline.map((event, i) => (
-              <motion.div
-                key={i}
-                className={`mb-14 ml-6 relative group flex flex-col md:flex-row items-center md:items-start gap-8 ${
-                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-              >
-                {/* Dot */}
-                <span className="absolute -left-8 w-6 h-6 bg-green-400 rounded-full shadow-md group-hover:scale-125 transition-transform" />
+{/* Timeline */}
+{!showOverlay && inView && (
+  <div className="mt-28 px-6 max-w-6xl mx-auto relative z-10">
+    <h3 className="text-3xl md:text-5xl font-bold text-center text-sky-800 mb-16">
+      Current Projects
+    </h3>
 
-                {/* Image */}
-                <Image
-                  src={event.img}
-                  alt={event.text}
-                  width={400}
-                  height={240}
-                  className="rounded-xl object-cover shadow-lg group-hover:scale-105 transition-transform"
-                />
+    <div className="relative border-l-2 border-green-400 ml-6">
+      {timeline.map((event, i) => (
+        <motion.div
+          key={i}
+          className={`mb-20 ml-6 relative group flex flex-col md:flex-row items-center gap-8 ${
+            i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+          }`}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          {/* Dot */}
+          <span className="absolute -left-8 w-6 h-6 bg-green-400 rounded-full shadow-md group-hover:scale-125 transition-transform" />
 
-                {/* Text */}
-                <div className="max-w-md bg-gradient-to-r from-sky-50 to-green-50 p-5 rounded-xl shadow-md border border-gray-100 group-hover:shadow-lg">
-                  <p className="text-green-700 font-semibold text-sm md:text-base mb-2">
-                    {event.time}
-                  </p>
-                  <p className="text-gray-800 text-base md:text-lg">{event.text}</p>
-                </div>
-              </motion.div>
-            ))}
+          {/* Image */}
+          <div className="relative w-[400px] h-[260px] flex-shrink-0">
+            <Image
+              src={event.img}
+              alt={event.text}
+              fill
+              className="rounded-xl object-cover shadow-lg group-hover:scale-105 transition-transform duration-500"
+            />
           </div>
-        </div>
-      )}
+
+          {/* Text — now vertically centered with image */}
+          <div className="flex items-center h-[260px]">
+            <div className="bg-gradient-to-r from-sky-50 to-green-50 p-6 rounded-xl shadow-md border border-gray-100 group-hover:shadow-lg max-w-md flex items-center">
+              <p className="text-gray-800 text-base md:text-lg font-medium">
+                {event.text}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+)}
+
     </section>
   );
 }
