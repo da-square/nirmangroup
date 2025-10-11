@@ -3,7 +3,6 @@
 import Image from "next/image";
 import {
   Facebook,
-  Twitter,
   Linkedin,
   Instagram,
   Phone,
@@ -16,7 +15,6 @@ const socialMediaLinks = [
   { href: socialLinks.facebook, icon: Facebook },
   { href: socialLinks.linkedin, icon: Linkedin },
   { href: socialLinks.instagram, icon: Instagram },
-  { href: "#", icon: Twitter },
 ];
 
 export default function Footer() {

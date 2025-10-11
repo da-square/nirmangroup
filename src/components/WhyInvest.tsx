@@ -36,14 +36,14 @@ export default function WhyInvest() {
         className="relative z-10 text-center px-6 pt-16"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        transition={{ duration: 0.5 }}
       >
         <h2 className="text-3xl md:text-5xl font-bold mb-4">
           <motion.span
             className="text-sky-900"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
           >
             Why Invest in{" "}
           </motion.span>
@@ -51,7 +51,7 @@ export default function WhyInvest() {
             className="text-green-600"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.5 }}
           >
             Dholera?
           </motion.span>
@@ -60,38 +60,64 @@ export default function WhyInvest() {
           className="text-gray-800 mt-3 text-lg md:text-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
         >
           Key developments powering the future of India’s first smart city
         </motion.p>
       </motion.div>
 
       {/* Slider Section */}
-      <div className="relative w-full flex justify-center mt-16">
+      <div className="relative w-full flex justify-center mt-12 mb-12">
         <div className="relative w-[90%] md:w-[80%] lg:w-[70%] h-[65vh] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/10 backdrop-blur-lg">
           <AnimatePresence mode="wait">
             <motion.div
               key={whyInvestList[activeIndex].title}
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
               className="absolute inset-0 flex items-center justify-center"
             >
               {/* Background Image */}
-              <Image
-                src={whyInvestList[activeIndex].img}
-                alt={whyInvestList[activeIndex].title}
-                fill
-                className="object-cover rounded-3xl"
-              />
+              <motion.div
+                initial={{ scale: 1.05, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 1.05, opacity: 0 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="absolute inset-0"
+              >
+                <Image
+                  src={whyInvestList[activeIndex].img}
+                  alt={whyInvestList[activeIndex].title}
+                  fill
+                  className="object-cover rounded-3xl"
+                />
+              </motion.div>
 
               {/* Overlay Info */}
-              <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/20">
-                <h2 className="text-2xl md:text-4xl font-bold text-sky-900 text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -30 }}
+                transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
+                className="
+                    absolute 
+                    top-4 left-3 
+                    sm:top-6 sm:left-6 
+                    md:top-8 md:left-10 
+                    bg-white/20 
+                    backdrop-blur-md 
+                    p-3 sm:p-4 md:p-4 
+                    rounded-2xl 
+                    shadow-lg 
+                    border border-white/30 
+                    max-w-[85%] sm:max-w-[60%]
+                  "
+              >
+                <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-sky-900 text-left leading-snug">
                   {whyInvestList[activeIndex].title}
                 </h2>
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
         </div>
