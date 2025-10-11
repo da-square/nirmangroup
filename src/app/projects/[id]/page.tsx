@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 
 import ProjectImageSlider from "@/components/ProjectImageSlider";
 import { amenities, locationAdvantages, projects } from "@/data/projectsData";
+import Link from "next/link";
 
 export default function ProjectPage() {
   const { id } = useParams();
@@ -87,12 +88,18 @@ export default function ProjectPage() {
           Book a visit or get the latest brochure now!
         </p>
         <div className="flex justify-center gap-4">
-          <button className="cursor-pointer px-6 py-3 bg-white text-sky-800 rounded-lg hover:bg-white/90 transition">
+          <Link
+            href={`/contact`}
+            className="cursor-pointer px-6 py-3 bg-white text-sky-800 rounded-lg hover:bg-white/90 transition"
+          >
             Book a Visit
-          </button>
-          <button className="cursor-pointer px-6 py-3 border border-white rounded-lg hover:bg-white/20 transition">
+          </Link>
+          <Link
+            href={`/brochure`}
+            className="cursor-pointer px-6 py-3 border border-white rounded-lg hover:bg-white/20 transition"
+          >
             Download Brochure
-          </button>
+          </Link>
         </div>
       </section>
     </main>

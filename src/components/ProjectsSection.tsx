@@ -32,7 +32,12 @@ const ProjectsSection = () => {
           {/* Featured Project */}
           <div className="flex flex-col space-y-6 w-[95%] md:w-[100%] mx-auto">
             <div className="relative h-64 sm:h-80 md:h-[520px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/10 backdrop-blur-lg transition-shadow hover:shadow-[0_0_40px_rgba(56,189,248,0.3),0_0_20px_rgba(110,231,183,0.2)]">
-              
+              {/* Caption */}
+              {/* <div className="absolute bottom-[80%] left-4 p-4 sm:p-4   backdrop-blur p-4 rounded-2xl shadow-lg border border-white/20">                              
+                <h3 className="text-lg sm:text-xl md:text-3xl font-semibold text-sky-900">
+                  {projects[active].name}
+                </h3>
+              </div> */}
               {/* AnimatePresence for smooth fade transitions */}
               <AnimatePresence mode="wait">
                 <motion.div
@@ -46,33 +51,22 @@ const ProjectsSection = () => {
                   <motion.div
                     className="relative w-full h-full"
                     animate={{ scale: [1, 1.05, 1] }}
-                    transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                   transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
                   >
-                    <Image
-                      src={projects[active].images[0]}
-                      alt={projects[active].name}
-                      fill
-                      className="object-fit rounded-2xl"
-                    />
+                    <Link
+                      href={`/projects/${projects[active].id}`}
+                      className="font-semibold text-green-600 hover:text-sky-700 transition-colors mt-2 inline-block"
+                    >
+                      <Image
+                        src={projects[active].images[0]}
+                        alt={projects[active].name}
+                        fill
+                        className={`object-fit rounded-xl ${projects[active].id === "the_meridian" && "pr-10"}`}
+                      />
+                    </Link>
                   </motion.div>
                 </motion.div>
               </AnimatePresence>
-
-              {/* Caption */}
-              <div className="absolute bottom-0 left-0 p-4 sm:p-6 w-full bg-gradient-to-t from-black/70 via-black/50 to-transparent rounded-b-2xl">
-                <h3 className="text-lg sm:text-xl md:text-3xl font-semibold text-green-600">
-                  {projects[active].name}
-                </h3>
-                {/* <p className="text-gray-800 text-sm sm:text-base md:text-lg mt-1">
-                  {projects[active].description}
-                </p> */}
-                <Link
-                  href={`/projects/${projects[active].id}`}
-                  className="font-semibold text-green-600 hover:text-sky-700 transition-colors mt-2 inline-block"
-                >
-                  Click here for more details →
-                </Link>
-              </div>
             </div>
 
             {/* Thumbnails */}
@@ -91,7 +85,7 @@ const ProjectsSection = () => {
                     src={p.images[0]}
                     alt={p.name}
                     fill
-                    className="object-fit rounded-xl"
+                    className={`object-fit rounded-xl ${p.id === "the_meridian" && "p-5"}`}
                   />
                   <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition rounded-xl" />
                 </button>
