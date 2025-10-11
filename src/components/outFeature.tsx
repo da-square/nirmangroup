@@ -152,41 +152,53 @@ export default function FutureCityExperience() {
       Current Projects
     </h3>
 
-    <div className="relative border-l-2 border-green-400 ml-6">
-      {timeline.map((event, i) => (
-        <motion.div
-          key={i}
-          className={`mb-20 ml-6 relative group flex flex-col md:flex-row items-center gap-8 ${
-            i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-          }`}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          {/* Dot */}
-          <span className="absolute -left-8 w-6 h-6 bg-green-400 rounded-full shadow-md group-hover:scale-125 transition-transform" />
+<div className="relative border-l-4 border-green-500 ml-8">
+  {timeline.map((event, i) => (
+    <motion.div
+      key={i}
+      className={`mb-14 ml-8 relative group flex flex-col md:flex-row items-center justify-between gap-10 ${
+        i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+      }`}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+    >
+      {/* Dot */}
+      <span className="absolute -left-10 w-8 h-8 bg-green-500 border-4 border-white rounded-full shadow-lg group-hover:scale-125 transition-transform duration-300" />
 
-          {/* Image */}
-          <div className="relative w-[400px] h-[260px] flex-shrink-0">
-            <Image
-              src={event.img}
-              alt={event.text}
-              fill
-              className="rounded-xl object-cover shadow-lg group-hover:scale-105 transition-transform duration-500"
-            />
-          </div>
+      {/* Image */}
+      <div className="relative w-[520px] h-[340px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl">
+        <Image
+          src={event.img}
+          alt={event.text}
+          fill
+          className="object-cover group-hover:scale-110 transition-transform duration-700"
+        />
+      </div>
 
-          {/* Text — now vertically centered with image */}
-          <div className="flex items-center h-[260px]">
-            <div className="bg-gradient-to-r from-sky-50 to-green-50 p-6 rounded-xl shadow-md border border-gray-100 group-hover:shadow-lg max-w-md flex items-center">
-              <p className="text-gray-800 text-base md:text-lg font-medium">
-                {event.text}
+      {/* Text */}
+      <div className="flex items-center h-auto md:h-[340px]">
+        <div className="bg-white/60 backdrop-blur-md p-5 rounded-xl shadow-lg border border-green-100 hover:shadow-2xl max-w-md transition-all duration-500 relative">
+          {/* Decorative Accent Line */}
+          <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-green-400 to-sky-400 rounded-l-xl" />
+
+          <div className="pl-4">
+            <p className="text-xl sm:text-2xl font-semibold mb-2 bg-gradient-to-r from-green-600 to-sky-500 bg-clip-text text-transparent">
+              {event.text}
+            </p>
+            {event.description && (
+              <p className="text-gray-700 text-sm leading-relaxed tracking-wide">
+                {event.description}
               </p>
-            </div>
+            )}
           </div>
-        </motion.div>
-      ))}
-    </div>
+        </div>
+      </div>
+    </motion.div>
+  ))}
+</div>
+
+
   </div>
 )}
 
