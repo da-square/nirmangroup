@@ -113,7 +113,7 @@ const ExploreSirSection = () => {
   const active = tabContent[activeTab];
 
   return (
-    <section className="relative w-full py-20 px-4 sm:px-8 bg-gradient-to-b from-green-200 via-sky-100 to-sky-300 overflow-hidden">
+    <section className="relative w-full py-20 px-4 sm:px-8 bg-gradient-to-br from-sky-200 via-green-100 to-green-300 overflow-hidden">
       {/* background gradient shapes */}
       <div className="absolute top-0 left-0 w-[30rem] h-[30rem] bg-sky-200/40 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-0 w-[25rem] h-[25rem] bg-green-200/30 rounded-full blur-3xl -z-10" />

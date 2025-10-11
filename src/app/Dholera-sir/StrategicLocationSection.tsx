@@ -33,7 +33,7 @@ const locationHighlights = [
 
 export default function StrategicLocationSection() {
   return (
-    <section className="relative py-20 px-4 sm:px-10 bg-gradient-to-b from-green-200 via-sky-100 to-sky-300 overflow-hidden">
+    <section className="relative py-20 px-4 sm:px-10 bg-gradient-to-br from-sky-200 via-green-100 to-green-300 overflow-hidden">
       {/* Decorative blurred circles - enhanced from reference */}
       <div className="absolute top-0 left-0 w-[25rem] h-[25rem] bg-cyan-200/40 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-blue-200/40 rounded-full blur-3xl -z-10" />
@@ -45,10 +45,10 @@ export default function StrategicLocationSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl font-bold text-gray-800"
+            className="text-3xl sm:text-4xl font-bold text-sky-900"
           >
             Strategic Location
-            <span className="block text-blue-700">Positioned for Growth</span>
+            <span className="block text-green-700">Positioned for Growth</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}

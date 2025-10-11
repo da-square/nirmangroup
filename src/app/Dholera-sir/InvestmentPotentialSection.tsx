@@ -53,20 +53,21 @@ const investmentFeatures = [
 
 export default function InvestmentPotentialSection() {
   return (
-    <section className="relative py-20 px-4 sm:px-10 bg-gradient-to-b from-green-200 via-sky-100 to-sky-300 overflow-hidden">
+    <section className="relative py-20 px-4 sm:px-10 bg-gradient-to-br from-sky-200 via-green-100 to-green-300 overflow-hidden">
       {/* Decorative blurred circles - warm tones for investment theme */}
       <div className="absolute top-0 left-0 w-[25rem] h-[25rem] bg-orange-200/40 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-amber-200/40 rounded-full blur-3xl -z-10" />
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[15rem] h-[15rem] bg-white/20 rounded-full blur-xl -z-10" />
 
       <div className="max-w-7xl mx-auto text-center mb-14">
-        <motion.h2
+         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4"
+          className="text-3xl sm:text-4xl font-bold text-sky-900"
         >
-          Investment Potential
+          Investment{" "}
+          <span className="text-green-700">Potential</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
