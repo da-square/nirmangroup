@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Orbitron } from "next/font/google";
+import FloatingBanner from "./floatingBanner";
 
 const orbitron = Orbitron({
   subsets: ["latin"],
@@ -46,6 +47,7 @@ const Hero = () => {
 
   return (
     <>
+    <FloatingBanner />
       {/* HERO SECTION */}
       <section className="relative flex flex-col items-center justify-center min-h-screen w-full px-4 sm:px-8 md:px-16 lg:px-24 py-12 sm:py-20 overflow-hidden">
         {/* Background Images */}
