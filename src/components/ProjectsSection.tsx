@@ -16,28 +16,22 @@ const ProjectsSection = () => {
   }, [projects.length]);
 
   return (
-    <section className="relative w-full px-4 sm:px-8 md:px-16 lg:px-24 py-20 bg-gradient-to-b from-sky-200 via-green-100 to-sky-300 overflow-hidden">
+    <section className="relative w-full px-3 sm:px-6 md:px-12 lg:px-24 py-16 sm:py-20 bg-gradient-to-b from-sky-200 via-green-100 to-sky-300 overflow-hidden">
       {/* Decorative Background Blurs */}
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-green-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>
-      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-sky-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>
+      <div className="absolute top-0 left-0 w-[250px] sm:w-[350px] md:w-[400px] h-[250px] sm:h-[350px] md:h-[400px] bg-green-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>
+      <div className="absolute bottom-0 right-0 w-[280px] sm:w-[400px] md:w-[450px] h-[280px] sm:h-[400px] md:h-[450px] bg-sky-200/30 rounded-full blur-3xl animate-pulse -z-10"></div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Heading */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-center mb-12">
+        <h1 className="text-2xl sm:text-4xl font-bold text-center mb-8 sm:mb-12">
           <span className="text-sky-900">Our Ongoing</span>{" "}
           <span className="text-green-600">Projects</span>
         </h1>
 
-        <div className="grid lg:grid-cols-1 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {/* Featured Project */}
-          <div className="flex flex-col space-y-6 w-[95%] md:w-[100%] mx-auto">
-            <div className="relative h-64 sm:h-80 md:h-[520px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/10 backdrop-blur-lg transition-shadow hover:shadow-[0_0_40px_rgba(56,189,248,0.3),0_0_20px_rgba(110,231,183,0.2)]">
-              {/* Caption */}
-              {/* <div className="absolute bottom-[80%] left-4 p-4 sm:p-4   backdrop-blur p-4 rounded-2xl shadow-lg border border-white/20">                              
-                <h3 className="text-lg sm:text-xl md:text-3xl font-semibold text-sky-900">
-                  {projects[active].name}
-                </h3>
-              </div> */}
+          <div className="flex flex-col space-y-6 w-[95%] md:w-full mx-auto">
+            <div className="relative h-52 sm:h-72 md:h-[480px] lg:h-[520px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/10 backdrop-blur-lg transition-shadow hover:shadow-[0_0_40px_rgba(56,189,248,0.3),0_0_20px_rgba(110,231,183,0.2)]">
               {/* AnimatePresence for smooth fade transitions */}
               <AnimatePresence mode="wait">
                 <motion.div
@@ -50,18 +44,26 @@ const ProjectsSection = () => {
                 >
                   <motion.div
                     className="relative w-full h-full"
-                    animate={{ scale: [1, 1.05, 1] }}
-                   transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+                    initial={{ scale: 1.05 }}
+                    animate={{ scale: 1 }}
+                    transition={{
+                      duration: 6,
+                      ease: "easeOut",
+                    }}
                   >
                     <Link
                       href={`/projects/${projects[active].id}`}
-                      className="font-semibold text-green-600 hover:text-sky-700 transition-colors mt-2 inline-block"
+                      className="block w-full h-full"
                     >
                       <Image
                         src={projects[active].images[0]}
                         alt={projects[active].name}
                         fill
-                        className={`object-fit rounded-xl ${projects[active].id === "the_meridian" && "pr-10"}`}
+                        className={`object-fit rounded-xl ${
+                          projects[active].id === "the_meridian"
+                            ? "pr-6 sm:pr-10"
+                            : ""
+                        }`}
                       />
                     </Link>
                   </motion.div>
@@ -70,12 +72,12 @@ const ProjectsSection = () => {
             </div>
 
             {/* Thumbnails */}
-            <div className="flex space-x-3 sm:space-x-4 overflow-x-auto scrollbar-hide pb-2">
+            <div className="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide pb-2 justify-center sm:justify-start">
               {projects.map((p, idx) => (
                 <button
                   key={idx}
                   onClick={() => setActive(idx)}
-                  className={`relative w-24 sm:w-28 md:w-32 h-16 sm:h-20 md:h-20 rounded-xl overflow-hidden border-2 flex-shrink-0 transition-all ${
+                  className={`relative w-20 sm:w-24 md:w-28 h-14 sm:h-16 md:h-20 rounded-xl overflow-hidden border-2 flex-shrink-0 transition-all ${
                     active === idx
                       ? "border-green-400 shadow-[0_0_20px_rgba(110,231,183,0.5)]"
                       : "border-white/20 hover:border-green-400 hover:shadow-[0_0_15px_rgba(110,231,183,0.3)]"
@@ -85,7 +87,9 @@ const ProjectsSection = () => {
                     src={p.images[0]}
                     alt={p.name}
                     fill
-                    className={`object-fit rounded-xl ${p.id === "the_meridian" && "p-5"}`}
+                    className={`object-fit rounded-xl ${
+                      p.id === "the_meridian" ? "p-3 sm:p-5" : ""
+                    }`}
                   />
                   <div className="absolute inset-0 bg-black/40 hover:bg-black/20 transition rounded-xl" />
                 </button>
