@@ -1,12 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  TrendingUp,
-  Building2,
-  Handshake,
-  Globe2,
-} from "lucide-react";
+import { TrendingUp, Building2, Handshake, Globe2 } from "lucide-react";
 
 const investmentFeatures = [
   {
@@ -15,7 +10,9 @@ const investmentFeatures = [
     description: (
       <>
         <p className="text-sm text-gray-600 mb-1">with government backing</p>
-        <p className="text-xs text-gray-500">Significant appreciation and planned development.</p>
+        <p className="text-xs text-gray-500">
+          Significant appreciation and planned development.
+        </p>
       </>
     ),
   },
@@ -24,8 +21,12 @@ const investmentFeatures = [
     title: "Multiple Sectors",
     description: (
       <>
-        <p className="text-sm text-gray-600 mb-1">Investment opportunities in multiple sectors</p>
-        <p className="text-xs text-gray-500">Residential, commercial, and industrial sectors.</p>
+        <p className="text-sm text-gray-600 mb-1">
+          Investment opportunities in multiple sectors
+        </p>
+        <p className="text-xs text-gray-500">
+          Residential, commercial, and industrial sectors.
+        </p>
       </>
     ),
   },
@@ -35,7 +36,9 @@ const investmentFeatures = [
     description: (
       <>
         <p className="text-sm text-gray-600 mb-1">Strong Government Support</p>
-        <p className="text-xs text-gray-500">Special incentives for investors.</p>
+        <p className="text-xs text-gray-500">
+          Special incentives for investors.
+        </p>
       </>
     ),
   },
@@ -44,8 +47,12 @@ const investmentFeatures = [
     title: "Global Hub",
     description: (
       <>
-        <p className="text-sm text-gray-600 mb-1">Positioned to become a global hub</p>
-        <p className="text-xs text-gray-500">For manufacturing and trading hub.</p>
+        <p className="text-sm text-gray-600 mb-1">
+          Positioned to become a global hub
+        </p>
+        <p className="text-xs text-gray-500">
+          For manufacturing and trading hub.
+        </p>
       </>
     ),
   },
@@ -60,14 +67,13 @@ export default function InvestmentPotentialSection() {
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[15rem] h-[15rem] bg-white/20 rounded-full blur-xl -z-10" />
 
       <div className="max-w-7xl mx-auto text-center mb-14">
-         <motion.h2
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-3xl sm:text-4xl font-bold text-sky-900"
+          className="text-3xl sm:text-4xl font-bold text-sky-900 mb-4"
         >
-          Investment{" "}
-          <span className="text-green-700">Potential</span>
+          Investment <span className="text-green-700">Potential</span>
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -75,7 +81,8 @@ export default function InvestmentPotentialSection() {
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-gray-600 max-w-2xl mx-auto leading-relaxed"
         >
-          Dholera SIR offers significant investment opportunities across various sectors, backed by government support and world-class infrastructure.
+          Dholera SIR offers significant investment opportunities across various
+          sectors, backed by government support and world-class infrastructure.
         </motion.p>
       </div>
 
@@ -87,11 +94,11 @@ export default function InvestmentPotentialSection() {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -8, scale: 1.03 }}
-            transition={{ 
-              duration: 0.5, 
+            transition={{
+              duration: 0.5,
               delay: index * 0.1,
               type: "spring",
-              stiffness: 300
+              stiffness: 300,
             }}
             viewport={{ once: true }}
             className="group relative bg-white/60 backdrop-blur-md border border-amber-100 rounded-3xl shadow-md hover:shadow-xl overflow-hidden transition-all"

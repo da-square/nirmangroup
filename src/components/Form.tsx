@@ -82,7 +82,7 @@ export default function ContactFormModal() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[9999]">
       <div
-        className={`w-full max-w-lg bg-white/10 backdrop-blur-xl
+        className={`w-[90%] max-w-lg bg-white/10 backdrop-blur-xl
           rounded-2xl p-8 border border-white/20
           relative transform transition-all duration-500
           ${animate ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
