@@ -27,39 +27,6 @@ import {
 
 export const projects = [
   {
-    id: "the_earth",
-    name: "The Earth",
-    description: "A divine experience with contemporary lifestyle features.",
-    nirmaGroupDescription,
-    images: [
-      "/images/projects/earth/logo.jpg",
-      "/images/projects/earth/11.jpg",
-      "/images/projects/earth/12.jpg",
-      "/images/projects/earth/13.jpg",
-    ],
-  },
-  {
-    id: "the_palm_trees",
-    name: "The Palm Trees",
-    description: `Rising above with premium infrastructure and luxury living.`,
-    nirmaGroupDescription,
-    images: [
-      "/images/projects/palm-trees/logo.jpg",
-      "/images/projects/palm-trees/Scene 25_1.png",
-    ],
-  },
-  {
-    id: "the_velavadar_exotica",
-    name: "The Velavadar Exotica",
-    description: "Rising above with premium infrastructure and luxury living.",
-    nirmaGroupDescription,
-    images: [
-      "/images/projects/velavadar-exotica/logo.jpeg",
-      "/images/projects/velavadar-exotica/11.png",
-      "/images/projects/velavadar-exotica/12.png",
-    ],
-  },
-  {
     id: "the_meridian",
     name: "The Meridian",
     description:
@@ -88,6 +55,55 @@ export const projects = [
       "/images/projects/regalia/15.jpg",
     ],
   },
+  {
+    id: "the_606",
+    name: "The 606",
+    description:
+      "Elegant living with world-class amenities for modern families.",
+    nirmaGroupDescription,
+    images: [
+      "/images/projects/regalia/logo.png",
+      "/images/projects/regalia/11.jpg",
+      "/images/projects/regalia/12.jpg",
+      "/images/projects/regalia/13.jpg",
+      "/images/projects/regalia/14.jpg",
+      "/images/projects/regalia/15.jpg",
+    ],
+  },
+  {
+    id: "the_velavadar_exotica",
+    name: "The Velavadar Exotica",
+    description: "Rising above with premium infrastructure and luxury living.",
+    nirmaGroupDescription,
+    images: [
+      "/images/projects/velavadar-exotica/logo.jpeg",
+      "/images/projects/velavadar-exotica/11.png",
+      "/images/projects/velavadar-exotica/12.png",
+    ],
+  },
+  {
+    id: "the_earth",
+    name: "The Earth",
+    description: "A divine experience with contemporary lifestyle features.",
+    nirmaGroupDescription,
+    images: [
+      "/images/projects/earth/logo.jpg",
+      "/images/projects/earth/11.jpg",
+      "/images/projects/earth/12.jpg",
+      "/images/projects/earth/13.jpg",
+    ],
+  },
+  {
+    id: "the_palm_trees",
+    name: "The Palm Trees",
+    description: `Rising above with premium infrastructure and luxury living.`,
+    nirmaGroupDescription,
+    images: [
+      "/images/projects/palm-trees/logo.jpg",
+      "/images/projects/palm-trees/Scene 25_1.png",
+    ],
+  },
+
   // {
   //   name: "The Mercury Divine",
   //   description: "A divine experience with contemporary lifestyle features.",
