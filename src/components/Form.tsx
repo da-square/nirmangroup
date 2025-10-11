@@ -40,12 +40,12 @@ export default function ContactFormModal() {
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  e.preventDefault();
     console.log("Form Submitted:", formData);
 
-    setFormData({ name: "", email: "", phone: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", message: "" });
     handleClose();
-  };
+};
 
   const handleClose = () => {
     setAnimate(false);
