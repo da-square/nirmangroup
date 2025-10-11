@@ -16,9 +16,6 @@ export default function FloatingContactButton() {
       flex flex-col items-center text-center gap-0.5
       backdrop-blur-md border border-white/10 text-sm md:text-base"
     >
-      <span className="text-[10px] md:text-xs text-white/80 font-light uppercase tracking-wider">
-        Contact us from here
-      </span>
       <span className="flex items-center gap-1.5 text-sm md:text-base font-bold text-white">
         <span className="animate-pulse text-lime-300 text-sm md:text-base">📞</span>
         +91-9998842046
