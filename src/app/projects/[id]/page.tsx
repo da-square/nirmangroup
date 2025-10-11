@@ -29,9 +29,16 @@ export default function ProjectPage() {
           {project.name}
         </h1>
 
-        <div className="max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-sky-200 scrollbar-track-transparent px-1 sm:px-2">
+        <div className="max-h-[60vh] overflow-y-auto scrollbar-thin scrollbar-thumb-sky-200 scrollbar-track-transparent px-2 sm:px-4">
           <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed text-justify sm:text-center">
             {project.description}
+          </p>
+        </div>
+
+        {/* Company Information Section */}
+        <div className="mt-6 sm:mt-10 bg-white/30 border border-white/25 backdrop-blur-md rounded-2xl shadow-md px-4 sm:px-6 py-6 max-h-[55vh] overflow-y-auto scrollbar-thin scrollbar-thumb-green-300 scrollbar-track-transparent">
+          <p className="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7 text-justify sm:text-center tracking-normal italic">
+            {project.nirmaGroupDescription}
           </p>
         </div>
       </section>

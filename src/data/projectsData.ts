@@ -1,18 +1,4 @@
-import {
-  MapPin,
-  BusFront,
-  Building2,
-  Plane,
-  Waves,
-  TrainTrack,
-  Landmark,
-} from "lucide-react";
-
-export const projects = [
-  {
-    id: "the_earth",
-    name: "The Earth",
-    description: `
+const nirmaGroupDescription = `
     The Dholera Nirman Group stand as adistinguished and leading force in
 the realm of Real Estate within Dholera Smart City, with its developments
 strategically positioned within and along the periphery of Dholera SIR.
@@ -27,8 +13,24 @@ strategic foresight and expertise to optimize their capital in Dholera’s
 burgeoning Real Estate Market
 A total of 245 plots available, including 7 semi-commercial and 238 residential plots
 Wide 12-meter central spine entry road and 7.5-meter connecting roads within THE Regalia
-project.
-    `,
+project.`;
+
+import {
+  MapPin,
+  BusFront,
+  Building2,
+  Plane,
+  Waves,
+  TrainTrack,
+  Landmark,
+} from "lucide-react";
+
+export const projects = [
+  {
+    id: "the_earth",
+    name: "The Earth",
+    description: "A divine experience with contemporary lifestyle features.",
+    nirmaGroupDescription,
     images: [
       "/images/projects/earth/logo.jpg",
       "/images/projects/earth/11.jpg",
@@ -40,6 +42,7 @@ project.
     id: "the_palm_trees",
     name: "The Palm Trees",
     description: `Rising above with premium infrastructure and luxury living.`,
+    nirmaGroupDescription,
     images: [
       "/images/projects/palm-trees/logo.jpg",
       "/images/projects/palm-trees/Scene 25_1.png",
@@ -49,6 +52,7 @@ project.
     id: "the_velavadar_exotica",
     name: "The Velavadar Exotica",
     description: "Rising above with premium infrastructure and luxury living.",
+    nirmaGroupDescription,
     images: [
       "/images/projects/velavadar-exotica/logo.jpeg",
       "/images/projects/velavadar-exotica/11.png",
@@ -60,6 +64,7 @@ project.
     name: "The Meridian",
     description:
       "Luxury with legacy. Premium living spaces designed for elegance. ",
+    nirmaGroupDescription,
     images: [
       "/images/projects/meridian/logo.png",
       "/images/projects/meridian/11.jpg",
@@ -73,6 +78,7 @@ project.
     name: "The Regalia",
     description:
       "Elegant living with world-class amenities for modern families.",
+    nirmaGroupDescription,
     images: [
       "/images/projects/regalia/logo.png",
       "/images/projects/regalia/11.jpg",
