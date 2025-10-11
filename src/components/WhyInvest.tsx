@@ -87,8 +87,8 @@ export default function WhyInvest() {
               />
 
               {/* Overlay Info */}
-              <div className="absolute bottom-10 left-10 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/20">
-                <h2 className="text-2xl md:text-4xl font-bold text-green-600">
+              <div className="absolute top-10 left-10 bg-white/10 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/20">
+                <h2 className="text-2xl md:text-4xl font-bold text-sky-900 text-left">
                   {whyInvestList[activeIndex].title}
                 </h2>
               </div>

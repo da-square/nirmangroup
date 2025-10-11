@@ -15,8 +15,8 @@ export const whyInvestList: WhyInvestItem[] = [
     img: "/images/whyInvest/Ahmedabad-Dholera-Express-Way.png",
   },
   {
-    title: "Tata Semiconductor Plant",
-    img: "/images/whyInvest/Tata-Semiconductor-plant.png",
+    title: "Lothal — The Port of History",
+    img: "/images/whyInvest/lothal.png",
   },
   {
     title: "Mono Rail Connectivity",
