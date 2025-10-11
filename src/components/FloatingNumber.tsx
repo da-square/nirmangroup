@@ -1,8 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function FloatingContactButton() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null; // prevent SSR mismatch
+
   return (
     <a
       href="tel:+919998842046"

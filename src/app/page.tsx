@@ -22,7 +22,6 @@ export default function Home() {
       <ProjectsSection />
       <GiantsCarousel />
       <WhyInvest />
-      <ContactForm />
 
       {/* <Amenities /> */}
       {/* <Projects />
