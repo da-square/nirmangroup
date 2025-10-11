@@ -12,7 +12,6 @@ const links = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
   { name: "Our Projects", href: "/projects" },
-  { name: "Dholera News", href: "/news" },
   { name: "Download Brochure", href: "/brochure" },
   { name: "Dholera SIR", href: "/Dholera-sir" },
   { name: "Contact Us", href: "/contact" },
