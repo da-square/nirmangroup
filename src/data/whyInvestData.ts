@@ -23,6 +23,10 @@ export const whyInvestList: WhyInvestItem[] = [
     img: "/images/whyInvest/Mono-Rail-Connectivity.jpg",
   },
   {
+    title: "Tata Semiconductor Plant",
+    img: "/images/whyInvest/Tata-Semiconductor-plant.png",
+  },
+  {
     title: "Tata Solar Power Plant Of 5000MW",
     img: "/images/whyInvest/Tata-Solar.png",
   },
