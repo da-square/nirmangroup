@@ -13,7 +13,9 @@ export default function FloatingContactButton() {
 
   return (
     <a
-      href="tel:+919998842046"
+      href="https://wa.me/919998842046"
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 
       bg-gradient-to-r from-teal-700 via-emerald-600 to-green-700
       text-white font-semibold tracking-wide
