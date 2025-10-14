@@ -16,7 +16,7 @@ export const whyInvestList: WhyInvestItem[] = [
   },
   {
     title: "Lothal — The Port of History",
-    img: "/images/whyInvest/lothal.png",
+    img: "/images/whyInvest/lothal.jpg",
   },
   {
     title: "Mono Rail Connectivity",
@@ -24,7 +24,7 @@ export const whyInvestList: WhyInvestItem[] = [
   },
   {
     title: "Tata Semiconductor Plant",
-    img: "/images/whyInvest/Tata-Semiconductor-plant.png",
+    img: "/images/whyInvest/Tata-Semiconductor-plant.jpg",
   },
   {
     title: "Tata Solar Power Plant Of 5000MW",
