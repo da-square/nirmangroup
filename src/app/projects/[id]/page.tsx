@@ -1,9 +1,11 @@
 "use client";
 
 import { useParams } from "next/navigation";
-
 import ProjectImageSlider from "@/components/ProjectImageSlider";
 import { amenities, locationAdvantages, projects } from "@/data/projectsData";
+import { useEffect } from "react";
+import { Download } from "lucide-react";
+import { triggerContactModal, DOWNLOAD_AFTER_FORM_EVENT } from "@/utils/contactModalEvent";
 import Link from "next/link";
 
 export default function ProjectPage() {
@@ -25,6 +27,46 @@ export default function ProjectPage() {
   const projectAmenities = amenities?.filter((adv) =>
     project.amenities.includes(adv.id)
   );
+
+  // ------------------------
+const projectId = typeof id === "string" ? id.replace(/^the_/, "") : "";
+const brochureFile = `/broucher/${projectId}.pdf`;
+
+  // ------------------------
+  // Auto-download after form submission
+  // ------------------------
+  useEffect(() => {
+    const handleAutoDownload = () => {
+      const link = document.createElement("a");
+      link.href = brochureFile;
+      link.download = `${projectId}-brochure.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
+
+    window.addEventListener(DOWNLOAD_AFTER_FORM_EVENT, handleAutoDownload);
+    return () =>
+      window.removeEventListener(DOWNLOAD_AFTER_FORM_EVENT, handleAutoDownload);
+  }, [brochureFile, projectId]);
+
+  // ------------------------
+  // Handle Brochure Button Click
+  // ------------------------
+  const handleDownloadBrochure = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const submitted = localStorage.getItem("contactFormSubmitted");
+    if (submitted !== "true") {
+      e.preventDefault();
+      triggerContactModal(); // open contact form
+    } else {
+      const link = document.createElement("a");
+      link.href = brochureFile;
+      link.download = `${projectId}-brochure.pdf`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
 
   return (
     <main className="bg-gradient-to-b from-sky-200 via-green-100 to-sky-300 text-gray-800">
@@ -78,7 +120,7 @@ export default function ProjectPage() {
         </div>
       </section>
 
-      {/* Ameneties section */}
+      {/* ✅ Amenities section */}
       <section className="w-full max-w-6xl mx-auto px-4 sm:px-8 py-12">
         <h2 className="text-3xl font-bold text-sky-800 text-center mb-10">
           Project Amenities
@@ -99,6 +141,7 @@ export default function ProjectPage() {
         </div>
       </section>
 
+      {/* ✅ Ready to Invest Section with Brochure download */}
       <section className="w-full py-12 text-center bg-gradient-to-b from-sky-200 via-green-100 to-sky-300">
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">
           Ready to Invest?
@@ -113,12 +156,15 @@ export default function ProjectPage() {
           >
             Book a Visit
           </Link>
-          <Link
-            href={`/brochure`}
-            className="cursor-pointer px-6 py-3 border border-white rounded-lg hover:bg-white/20 transition"
+
+          {/* Brochure Download Button */}
+          <button
+            onClick={handleDownloadBrochure}
+            className="cursor-pointer px-6 py-3 border border-white rounded-lg hover:bg-white/20 transition inline-flex items-center gap-2"
           >
+            <Download size={18} />
             Download Brochure
-          </Link>
+          </button>
         </div>
       </section>
     </main>
