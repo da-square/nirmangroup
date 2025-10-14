@@ -1,31 +1,38 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { MessageCircle } from "lucide-react"; // using existing lucide icon
 
-export default function FloatingContactButton() {
+export default function FloatingWhatsAppButton() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // prevent SSR mismatch
+  if (!mounted) return null;
+
+  const whatsappNumber = "919998842046";
+  const message = "Hello! I would like to know more about your project.";
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
     <a
-      href="tel:+919998842046"
+      href={whatsappLink}
+      target="_blank"
+      rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 
-      bg-gradient-to-r from-teal-700 via-emerald-600 to-green-700
-      text-white font-semibold tracking-wide
-      px-4 py-2.5 rounded-full 
-      shadow-[0_0_15px_rgba(16,185,129,0.4)] 
-      hover:shadow-[0_0_25px_rgba(16,185,129,0.7)] 
-      hover:scale-105 transition-all duration-300 
-      flex flex-col items-center text-center gap-0.5
-      backdrop-blur-md border border-white/10 text-sm md:text-base"
+      bg-green-600 hover:bg-green-700
+      text-white font-semibold rounded-full
+      px-4 py-2.5 md:px-5 md:py-3
+      shadow-[0_0_15px_rgba(34,197,94,0.4)]
+      hover:shadow-[0_0_25px_rgba(34,197,94,0.7)]
+      hover:scale-105 transition-all duration-300
+      backdrop-blur-md border border-white/10
+      flex items-center gap-2 md:gap-2.5"
     >
-      <span className="flex items-center gap-1.5 text-sm md:text-base font-bold text-white">
-        <span className="animate-pulse text-lime-300 text-sm md:text-base">📞</span>
+      <MessageCircle className="w-5 h-5 md:w-6 md:h-6 text-white" />
+      <span className="text-sm md:text-base font-medium text-white">
         +91-9998842046
       </span>
     </a>
