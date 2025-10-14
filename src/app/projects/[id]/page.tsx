@@ -18,6 +18,14 @@ export default function ProjectPage() {
     );
   }
 
+  const projectLocations = locationAdvantages?.filter((adv) =>
+    project.locationAdvantages?.includes(adv.id)
+  );
+
+  const projectAmenities = amenities?.filter((adv) =>
+    project.amenities.includes(adv.id)
+  );
+
   return (
     <main className="bg-gradient-to-b from-sky-200 via-green-100 to-sky-300 text-gray-800">
       {/* ✅ Image Gallery */}
@@ -50,7 +58,7 @@ export default function ProjectPage() {
         </h2>
 
         <div className="relative border-l-4 border-green-500 space-y-8 pl-6">
-          {locationAdvantages.map((adv, i) => {
+          {projectLocations.map((adv, i) => {
             const Icon = adv.icon;
             return (
               <div key={i} className="flex items-center gap-4">
@@ -72,8 +80,12 @@ export default function ProjectPage() {
 
       {/* Ameneties section */}
       <section className="w-full max-w-6xl mx-auto px-4 sm:px-8 py-12">
+        <h2 className="text-3xl font-bold text-sky-800 text-center mb-10">
+          Project Amenities
+        </h2>
+
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 backdrop-blur-xl">
-          {amenities.map((a, i) => (
+          {projectAmenities?.map((a, i) => (
             <div
               key={i}
               className="bg-white/30 border border-white/40 backdrop-blur-md rounded-2xl p-5 text-center hover:scale-105 hover:bg-white/40 transition-all"
