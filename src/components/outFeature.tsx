@@ -27,18 +27,17 @@ const zones = [
 ];
 
 const timeline = [
-  {  text: "The Earth", img: "/images/projects/earth/13.jpg" },
-  {  text: "The Meridian", img: "/images/projects/meridian/14.jpg" },
-  {  text: "Palm Tree", img: "/images/projects/palm-trees/Scene 25_1.png" },
-  {  text: "Regalia", img: "/images/projects/regalia/14.jpg" },
-    {  text: "Velavadar Exotica", img: "/images/projects/velavadar-exotica/12.png" },
+  { text: "The Earth", img: "/images/projects/earth/13.jpg" },
+  { text: "The Meridian", img: "/images/projects/meridian/14.jpg" },
+  { text: "Palm Tree", img: "/images/projects/palm-trees/Scene 25_1.png" },
+  { text: "Regalia", img: "/images/projects/regalia/14.jpg" },
+  { text: "Velavadar Exotica", img: "/images/projects/velavadar-exotica/12.png" },
 ];
 
 export default function FutureCityExperience() {
-  const [activeZone, setActiveZone] = useState<number>(0);`1`
-  const [activeImage, setActiveImage] = useState<number>(0);
+  const [activeZone, setActiveZone] = useState(0);
+  const [activeImage, setActiveImage] = useState(0);
   const [showOverlay, setShowOverlay] = useState(true);
-
   const { ref, inView } = useInView({ threshold: 0.3, triggerOnce: true });
 
   useEffect(() => {
@@ -66,14 +65,12 @@ export default function FutureCityExperience() {
   return (
     <section
       ref={ref}
-      className="relative w-full min-h-screen overflow-hidden 
-      bg-gradient-to-br from-sky-200 via-green-100 to-sky-300 text-gray-800"
+      className="relative w-full min-h-screen overflow-hidden bg-gradient-to-br from-sky-200 via-green-100 to-sky-300 text-gray-800"
     >
       {/* Background shapes */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute top-20 -left-20 w-[500px] h-[500px] bg-sky-300/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 -right-20 w-[500px] h-[500px] bg-green-300/40 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-1/2 left-1/2 w-[800px] h-[800px] -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-sky-200/50 to-green-200/50 rounded-full blur-[200px]"></div>
+        <div className="absolute top-20 -left-20 w-[400px] h-[400px] bg-sky-300/40 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 -right-20 w-[400px] h-[400px] bg-green-300/40 rounded-full blur-3xl animate-pulse"></div>
       </div>
 
       {/* Overlay Intro */}
@@ -86,7 +83,7 @@ export default function FutureCityExperience() {
             transition={{ duration: 1 }}
           >
             <motion.h1
-              className="text-5xl md:text-6xl font-extrabold text-green-600 drop-shadow-lg"
+              className="text-3xl sm:text-4xl md:text-6xl font-extrabold text-green-600 text-center px-4 drop-shadow-lg"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1.5, ease: "easeOut" }}
@@ -100,15 +97,15 @@ export default function FutureCityExperience() {
       {/* Intro Text */}
       {!showOverlay && inView && (
         <motion.div
-          className="relative z-10 text-center px-6 mt-20 max-w-2xl mx-auto"
+          className="relative z-10 text-center px-4 sm:px-6 mt-16 sm:mt-20 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-sky-900 mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-sky-900 mb-3 sm:mb-4">
             Step Into the Future
           </h2>
-          <p className="text-lg md:text-xl text-gray-700">
+          <p className="text-base sm:text-lg md:text-xl text-gray-700">
             Explore the zones that define tomorrow’s lifestyle.
           </p>
         </motion.div>
@@ -116,8 +113,8 @@ export default function FutureCityExperience() {
 
       {/* Zones Slider */}
       {!showOverlay && inView && (
-        <div className="relative w-full flex justify-center mt-20">
-          <div className="relative w-[90%] md:w-[80%] lg:w-[70%] h-[65vh] rounded-3xl overflow-hidden shadow-2xl bg-white/20 backdrop-blur-xl border border-white/30">
+        <div className="relative w-full flex justify-center mt-10 sm:mt-20 px-4">
+          <div className="relative w-full sm:w-[90%] md:w-[80%] lg:w-[70%] h-[50vh] sm:h-[60vh] rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl bg-white/20 backdrop-blur-xl border border-white/30">
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${zones[activeZone].id}-${activeImage}`}
@@ -131,13 +128,15 @@ export default function FutureCityExperience() {
                   src={zones[activeZone].stories[activeImage]}
                   alt={zones[activeZone].title}
                   fill
-                  className="object-cover rounded-3xl"
+                  className="object-cover rounded-2xl sm:rounded-3xl"
                 />
-                <div className="absolute bottom-10 left-10 bg-white/70 backdrop-blur-lg p-6 rounded-2xl max-w-lg shadow-lg border border-sky-100">
-                  <h2 className="text-2xl md:text-4xl font-bold text-green-700">
+                <div className="absolute bottom-5 sm:bottom-10 left-5 sm:left-10 bg-white/80 backdrop-blur-lg p-3 sm:p-6 rounded-xl sm:rounded-2xl max-w-[90%] sm:max-w-lg shadow-lg border border-sky-100">
+                  <h2 className="text-lg sm:text-2xl md:text-4xl font-bold text-green-700">
                     {zones[activeZone].title}
                   </h2>
-                  <p className="text-gray-800 mt-2">{zones[activeZone].desc}</p>
+                  <p className="text-gray-800 mt-1 sm:mt-2 text-sm sm:text-base">
+                    {zones[activeZone].desc}
+                  </p>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -145,63 +144,58 @@ export default function FutureCityExperience() {
         </div>
       )}
 
-{/* Timeline */}
-{!showOverlay && inView && (
-  <div className="mt-28 px-6 max-w-6xl mx-auto relative z-10">
-    <h3 className="text-3xl md:text-5xl font-bold text-center text-sky-800 mb-16">
-      Current Projects
-    </h3>
+      {/* Timeline */}
+      {!showOverlay && inView && (
+        <div className="mt-16 sm:mt-28 px-4 sm:px-6 max-w-6xl mx-auto relative z-10">
+          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold text-center text-sky-800 mb-10 sm:mb-16">
+            Current Projects
+          </h3>
 
-<div className="relative border-l-4 border-green-500 ml-8">
-  {timeline.map((event, i) => (
-    <motion.div
-      key={i}
-      className={`mb-14 ml-8 relative group flex flex-col md:flex-row items-center justify-between gap-10 ${
-        i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-      }`}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-    >
-      {/* Dot */}
-      <span className="absolute -left-10 w-8 h-8 bg-green-500 border-4 border-white rounded-full shadow-lg group-hover:scale-125 transition-transform duration-300" />
+          <div className="relative border-l-2 sm:border-l-4 border-green-500 ml-4 sm:ml-8">
+            {timeline.map((event, i) => (
+              <motion.div
+                key={i}
+                className={`mb-10 sm:mb-14 ml-4 sm:ml-8 relative group flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-10 ${
+                  i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+              >
+                {/* Dot */}
+                <span className="absolute -left-6 sm:-left-10 w-4 sm:w-8 h-4 sm:h-8 bg-green-500 border-2 sm:border-4 border-white rounded-full shadow-lg group-hover:scale-125 transition-transform duration-300" />
 
-      {/* Image */}
-      <div className="relative w-[520px] h-[340px] flex-shrink-0 rounded-2xl overflow-hidden shadow-2xl">
-        <Image
-          src={event.img}
-          alt={event.text}
-          fill
-          className="object-cover group-hover:scale-110 transition-transform duration-700"
-        />
-      </div>
+                {/* Image */}
+                <div className="relative w-full sm:w-[520px] h-[220px] sm:h-[340px] flex-shrink-0 rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={event.img}
+                    alt={event.text}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                </div>
 
-      {/* Text */}
-      <div className="flex items-center h-auto md:h-[340px]">
-        <div className="bg-white/60 backdrop-blur-md p-5 rounded-xl shadow-lg border border-green-100 hover:shadow-2xl max-w-md transition-all duration-500 relative">
-          {/* Decorative Accent Line */}
-          <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-green-400 to-sky-400 rounded-l-xl" />
-
-          <div className="pl-4">
-            <p className="text-xl sm:text-2xl font-semibold mb-2 bg-gradient-to-r from-green-600 to-sky-500 bg-clip-text text-transparent">
-              {event.text}
-            </p>
-            {event.description && (
-              <p className="text-gray-700 text-sm leading-relaxed tracking-wide">
-                {event.description}
-              </p>
-            )}
+                {/* Text */}
+                <div className="flex items-center h-auto md:h-[340px] w-full sm:w-auto">
+                  <div className="bg-white/70 backdrop-blur-md p-4 sm:p-5 rounded-xl shadow-lg border border-green-100 hover:shadow-2xl max-w-full sm:max-w-md transition-all duration-500 relative">
+                    <div className="absolute top-0 left-0 w-1 h-full sm:w-1.5 bg-gradient-to-b from-green-400 to-sky-400 rounded-l-xl" />
+                    <div className="pl-3 sm:pl-4">
+                      <p className="text-lg sm:text-2xl font-semibold mb-1 sm:mb-2 bg-gradient-to-r from-green-600 to-sky-500 bg-clip-text text-transparent">
+                        {event.text}
+                      </p>
+                      {event.description && (
+                        <p className="text-gray-700 text-xs sm:text-sm leading-relaxed tracking-wide">
+                          {event.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
-      </div>
-    </motion.div>
-  ))}
-</div>
-
-
-  </div>
-)}
-
+      )}
     </section>
   );
 }

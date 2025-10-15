@@ -34,11 +34,11 @@ export default function FloatingBanner() {
   const festivals: Festival[] = [
   // ---------- 2025 ----------
   {
-    name: "Test Festival",
+    name: "Diwali 2025",
     startDate: todayStr,
     endDate: todayStr,
-    greeting: "🎉 Today is Test Festival!",
-    offerMessage: "Enjoy special test offers just for today! 🛍️",
+    greeting: "🪔 Happy Diwali!",
+    offerMessage: "Light up your life with our special festive offers! ✨",
   },
   {
     name: "Diwali 2025",
