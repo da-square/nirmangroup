@@ -13,7 +13,7 @@ const SirPage = () => {
         {/* Left Text Section */}
         <div className="flex-1 w-full lg:w-1/2 space-y-6">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-sky-900 leading-snug drop-shadow-sm">
-            INDIA&apos;S FIRST GREEN SMART CITY
+            INDIA&apos;S FIRST GREEN FIELD SMART CITY
           </h1>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-green-700 leading-snug">
             Dholera Special Investment Region (SIR)

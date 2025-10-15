@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { Download } from "lucide-react";
 import { triggerContactModal, DOWNLOAD_AFTER_FORM_EVENT } from "@/utils/contactModalEvent";
 import Link from "next/link";
+import ProjectDescription from "@/components/ProjectDescription";
 
 export default function ProjectPage() {
   const { id } = useParams();
@@ -86,11 +87,10 @@ const brochureFile = `/broucher/${projectId}.pdf`;
         </div>
 
         {/* Company Information Section */}
-        <div className="mt-6 sm:mt-10 bg-white/30 border border-white/25 backdrop-blur-md rounded-2xl shadow-md px-4 sm:px-6 py-6 max-h-[55vh] overflow-y-auto scrollbar-thin scrollbar-thumb-green-300 scrollbar-track-transparent">
-          <p className="text-sm sm:text-base text-gray-700 leading-relaxed sm:leading-7 text-justify sm:text-center tracking-normal italic">
-            {project.nirmaGroupDescription}
-          </p>
-        </div>
+        <h1 className="text-xl md:text-2xl text-sky-800 mt-8 mb-6 text-left">
+          Project Details
+        </h1>
+        <ProjectDescription text={project?.projectDescription}/>
       </section>
 
       {/* ✅ Location Advantages */}
