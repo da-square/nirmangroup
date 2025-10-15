@@ -1,4 +1,4 @@
-const nirmaGroupDescription = `
+const projectDescription = `
     The Dholera Nirman Group stand as a distinguished and leading force in
     the realm of Real Estate within Dholera Smart City, with its developments
     strategically positioned within and along the periphery of Dholera SIR.
@@ -8,12 +8,73 @@ const nirmaGroupDescription = `
     Our projects epitomize refined living. meticulously crafted to offer a
     sophisticated Ambience paired with robust infrastructural development and
     a wealth of modern amenities.
-    We prioritize secure, high-yield investments, empowering our investors with
-    strategic foresight and expertise to optimize their capital in Dholera’s
-    burgeoning Real Estate Market
-    A total of 245 plots available, including 7 semi-commercial and 238 residential plots
-    Wide 12-meter central spine entry road and 7.5-meter connecting roads within THE Regalia
-    project.`;
+`;
+
+const theVelavadarDescription = `The Velavadar Exotica is a premium Residential Plotting
+Project located near Adhelai Circle and the DSIR Border in Village Kanatalav, District 
+Bhavnagar. Spanning across a thoughtfully planned layout with 831 residential plots,
+this project offers a rare blend of nature, convenience, and investment potential.
+Strategically positioned just 500 meters from Dholera Smart City, The Velavadar Exotica
+enjoys seamless connectivity to major growth zones, ensuring strong appreciation prospects.
+The project lies in proximity to the Ahmedabad–Dholera Expressway, offering effortless access
+to major cities and industrial hubs.
+
+Location Advantages
+
+5 minutes from the National Blackbuck Sanctuary, 
+a renowned eco-tourism destination.
+Only 500 meters from Dholera Smart City,
+one of India’s most ambitious smart city projects.
+Just 5 minutes from the Ahmedabad–Dholera Expressway,ensuring smooth connectivity.
+Surrounded by major development zones — High Access Corridor, Industrial, Residential, 
+Knowledge, and IT — all within 10 minutes.
+With such a strategic location, The Velavadar Exotica stands as an ideal choice for 
+those seeking peaceful living near nature while staying close to the future hub of growth and opportunity.`;
+
+const theRegaliaDescription = `
+The Regalia is an exclusive Residential and Semi-Commercial Plotting Project strategically
+located near Dholera Smart City, Gujarat, in Village Anandpur, District Dholera.
+Designed to offer a blend of peaceful living and excellent connectivity,
+The Regalia presents a rare opportunity to invest in one of the fastest-developing smart
+city corridors of India.
+
+The project comprises 237 Residential Plots and 7 Semi-Commercial Plots, thoughtfully planned
+with easy accessibility and future-ready infrastructure. Nestled amidst nature yet close
+to major upcoming developments, The Regalia provides the perfect balance between lifestyle
+comfort and long-term investment value.`;
+
+const the606Description = `
+The 606 is the first-ever pure Commercial Plotting Project near Dholera Smart City,
+Gujarat, setting a new benchmark for business growth and investment potential in the region.
+This landmark development offers 118 premium commercial plots strategically located on the 
+100-meter wide NH751 Pipli–Vataman Highway, the main arterial route connecting Ahmedabad
+with Dholera SIR.
+
+Positioned in the high-growth corridor of Dholera, The 606 enjoys exceptional connectivity
+and proximity to key infrastructure developments.
+The project is located just 10 minutes from the Dholera International Cargo-cum-Passenger Airport and 
+the Mono Rail Junction, ensuring seamless access for logistics, travel, and trade.
+`;
+
+const theMeridianDescription = `
+The Meridian is a premium Residential and Commercial Plotting Project strategically located
+near Dholera Smart City, Gujarat.The Meridian stands
+as a gateway to the future of urban development.
+The project comprises 84 Residential Plots and 37 Commercial Plots, thoughtfully planned along
+the 100-meter wide NH751 Pipli-Vataman Highway. This prime location ensures excellent road
+connectivity and smooth access to major upcoming landmarks in the region.
+
+Situated in close proximity to the Dholera International Cargo-cum-Passenger Airport and
+the Mono Rail Junction, the project offers unmatched locational advantage for both investors
+and end-users. Additionally, it is located just 10 km from NMHC Lothal, an emerging tourism
+and heritage hub, further enhancing the project’s value proposition.
+
+With the Ahmedabad–Dholera Expressway offering rapid connectivity to Ahmedabad city,
+The Meridian is ideally positioned for those seeking a balanced lifestyle — combining
+the tranquility of nature with the promise of future-ready infrastructure.
+Whether for residential living, business expansion, or long-term investment,
+The Meridian at Dholera presents a remarkable opportunity to be part of Gujarat’s
+most progressive growth corridor.`;
 
 import {
   MapPin,
@@ -34,9 +95,9 @@ export const projects = [
     name: "The Meridian",
     description:
       "Luxury with legacy. Premium living spaces designed for elegance. ",
-    nirmaGroupDescription,
-    locationAdvantages: [10, 11, 3, 7, 13, 4, 9, 8],
-    amenities: [4, 17, 5, 6, 7, 3],
+    projectDescription: theMeridianDescription,
+    locationAdvantages: [10, 11, 7, 1, 4, 9, 8],
+    amenities: [4, 17, 5, 6, 7, 3, 25, 26],
     images: [
       "/images/projects/meridian/logo.png",
       "/images/projects/meridian/11.jpg",
@@ -50,8 +111,8 @@ export const projects = [
     name: "The Regalia",
     description:
       "Elegant living with world-class amenities for modern families.",
-    nirmaGroupDescription,
-    locationAdvantages: [1, 2, 14, 10, 5, 7, 3, 4, 8, 9, 15, 16],
+    nirmaGroupDescription: theRegaliaDescription,
+    locationAdvantages: [1, 2, 14, 10, 5, 7, 4, 8, 9, 15, 16],
     amenities: [4, 16, 17, 5, 7, 15],
     images: [
       "/images/projects/regalia/logo.png",
@@ -67,19 +128,18 @@ export const projects = [
     name: "The 606",
     description:
       "Elegant living with world-class amenities for modern families.",
-    nirmaGroupDescription,
-    amenities: [3, 5, 6, 10, 18, 24],
-    locationAdvantages: [2, 14, 15, 19, 20],
+    projectDescription: the606Description,
+    locationAdvantages: [10, 11, 7, 1, 4, 9, 8],
+    amenities: [4, 17, 5, 6, 7, 3],
     images: [
-      "/images/projects/regalia/logo.png",
-      "/images/projects/regalia/11.jpg",
+      "/images/projects/606/logo.png",
     ],
   },
   {
     id: "the_velavadar_exotica",
     name: "The Velavadar Exotica",
     description: "Rising above with premium infrastructure and luxury living.",
-    nirmaGroupDescription,
+    projectDescription: theVelavadarDescription,
     amenities: [4, 18, 5, 7, 19, 20, 21, 22, 6, 23, 24],
     locationAdvantages: [16, 17, 18, 19, 20],
     images: [
@@ -92,9 +152,9 @@ export const projects = [
     id: "the_earth",
     name: "The Earth",
     description: "A divine experience with contemporary lifestyle features.",
-    nirmaGroupDescription,
-    amenities: [3, 5, 6, 10, 18, 24],
-    locationAdvantages: [2, 14, 15, 19, 20],
+    projectDescription: projectDescription,
+    locationAdvantages: [10, 11, 7, 1, 4, 9, 8],
+    amenities: [4, 17, 5, 6, 7, 3],
     images: [
       "/images/projects/earth/logo.jpg",
       "/images/projects/earth/11.jpg",
@@ -102,28 +162,16 @@ export const projects = [
       "/images/projects/earth/13.jpg",
     ],
   },
-  {
-    id: "the_palm_trees",
-    name: "The Palm Trees",
-    description: `Rising above with premium infrastructure and luxury living.`,
-    nirmaGroupDescription,
-    amenities: [3, 5, 6, 10, 18, 24],
-    locationAdvantages: [2, 14, 15, 19, 20],
-    images: [
-      "/images/projects/palm-trees/logo.jpg",
-      "/images/projects/palm-trees/Scene 25_1.png",
-    ],
-  },
 ];
 
 export const locationAdvantages = [
   {
     id: 1,
-    icon: MapPin,
-    title: "In the Vicinity of 200-year-old Kamiyaladham Temple",
+    icon: Plane,
+    title: "Dholera International Cargo cum Passenger Airport",
     description:
-      "Located just 5 minutes away, offering proximity to the historic Kamiyaladham Temple.",
-    distance: "5 minutes",
+      "Just 10 minutes away from the Dholera International Cargo cum Passenger Airport.",
+    distance: "10 MIN",
   },
   {
     id: 2,
@@ -190,7 +238,7 @@ export const locationAdvantages = [
   },
   {
     id: 11,
-    icon: BusFront,
+    icon: MapPin,
     title: "NE8 and NH751",
     description:
       "Located at intersection of two major national highways NE8 and NH751.",
@@ -206,11 +254,11 @@ export const locationAdvantages = [
   },
   {
     id: 13,
-    icon: Plane,
-    title: "Dholera International Cargo cum Passenger Airport",
+    icon: MapPin,
+    title: "In the Vicinity of 200-year-old Kamiyaladham Temple",
     description:
-      "Just 10 minutes away from the Dholera International Cargo cum Passenger Airport.",
-    distance: "10 MIN",
+      "Located just 5 minutes away, offering proximity to the historic Kamiyaladham Temple.",
+    distance: "5 minutes",
   },
   {
     id: 14,
@@ -354,4 +402,6 @@ export const amenities = [
     description:
       "Ample covered and open parking areas designed for residents and visitors.",
   },
+  { id: 25, icon: "🛣️", title: "Internal Wide Road (12 & 9 mtr)" },
+  { id: 26, icon: "🛕", title: "Temple" },
 ];
