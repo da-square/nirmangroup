@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, ChangeEvent, FormEvent } from "react";
@@ -17,15 +16,35 @@ export default function ContactPage() {
     phone: "",
     message: "",
   });
+  const [status, setStatus] = useState<string>("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setStatus("Sending...");
+
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus("✅ Message sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setStatus("❌ Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("❌ An error occurred. Please try again.");
+    }
   };
 
   return (
@@ -33,7 +52,7 @@ export default function ContactPage() {
       <h1 className="text-4xl font-bold text-green-600 mb-12 mt-5">Contact Us</h1>
 
       <div className="w-full max-w-6xl flex flex-col lg:flex-row gap-8">
-        {/* Form Section - Left Side on Large Screens */}
+        {/* Form Section */}
         <div className="w-full lg:w-1/2 from-sky-400 via-green-500 to-sky-500 text-gray-800 backdrop-blur-sm shadow-lg rounded-2xl p-8">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Full Name */}
@@ -111,10 +130,15 @@ export default function ContactPage() {
             >
               Submit
             </button>
+
+            {/* Status Message */}
+            {status && (
+              <p className="mt-2 text-center text-gray-800 font-medium">{status}</p>
+            )}
           </form>
         </div>
 
-        {/* Company Info Section - Right Side on Large Screens */}
+        {/* Company Info Section */}
         <div className="w-full lg:w-1/2 p-8 flex flex-col justify-center">
           <h2 className="text-4xl font-bold text-green-600 mb-4 text-center lg:text-left">
             Dholera Nirman Group
