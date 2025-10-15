@@ -10,6 +10,13 @@ interface FormData {
   message: string;
 }
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  // message omitted from errors
+}
+
 export default function ContactFormModal() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -17,6 +24,7 @@ export default function ContactFormModal() {
     phone: "",
     message: "",
   });
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [isOpen, setIsOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
   const [status, setStatus] = useState<string>("");
@@ -55,14 +63,41 @@ export default function ContactFormModal() {
   }, []);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormErrors({ ...formErrors, [e.target.name]: undefined }); // clear error while typing
+  };
+
+  const validate = (): boolean => {
+    const errors: FormErrors = {};
+
+    if (!formData.name.trim()) {
+      errors.name = "Name is required.";
+    } else if (formData.name.length < 3) {
+      errors.name = "Name must be at least 3 characters.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      errors.email = "Email is required.";
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Invalid email address.";
+    }
+
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!formData.phone.trim()) {
+      errors.phone = "Phone number is required.";
+    } else if (!phoneRegex.test(formData.phone)) {
+      errors.phone = "Phone number must be 10 digits.";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!validate()) return; // stop submit if validation fails
+
     setStatus("Sending...");
 
     try {
@@ -83,8 +118,7 @@ export default function ContactFormModal() {
 
         // reset form
         setFormData({ name: "", email: "", phone: "", message: "" });
-
-        // close modal after short delay
+        setFormErrors({});
         setTimeout(() => handleClose(), 1500);
       } else {
         setStatus("❌ Failed to send message. Please try again.");
@@ -100,10 +134,9 @@ export default function ContactFormModal() {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-[9999]">
       <div
-        className={`w-[90%] max-w-lg bg-white/10 backdrop-blur-xl
-          rounded-2xl p-8 border border-white/20
-          relative transform transition-all duration-500
-          ${animate ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}
+        className={`w-[90%] max-w-lg bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 relative transform transition-all duration-500 ${
+          animate ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}
       >
         <button
           onClick={handleClose}
@@ -132,26 +165,36 @@ export default function ContactFormModal() {
                 name={field.id}
                 value={(formData as any)[field.id]}
                 onChange={handleChange}
-                required
                 placeholder=" "
-                className="peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none"
+                className={`peer w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 focus:outline-none ${
+                  formErrors[field.id as keyof FormErrors]
+                    ? "border-red-500"
+                    : "border-gray-500/30"
+                }`}
               />
               <label htmlFor={field.id} className="absolute left-3 top-2 text-gray-400 text-sm">
                 {field.label}
               </label>
+              {formErrors[field.id as keyof FormErrors] && (
+                <p className="text-red-500 text-sm mt-1">
+                  {formErrors[field.id as keyof FormErrors]}
+                </p>
+              )}
             </div>
           ))}
 
-          <textarea
-            id="message"
-            name="message"
-            rows={3}
-            value={formData.message}
-            onChange={handleChange}
-            required
-            placeholder="Your Message"
-            className="w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none resize-none"
-          />
+          {/* Message field without validation */}
+          <div className="relative group">
+            <textarea
+              id="message"
+              name="message"
+              rows={3}
+              value={formData.message}
+              onChange={handleChange}
+              placeholder="Your Message"
+              className="w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none resize-none"
+            />
+          </div>
 
           <button
             type="submit"
