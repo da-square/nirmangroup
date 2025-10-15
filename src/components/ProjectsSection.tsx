@@ -59,7 +59,7 @@ const ProjectsSection = () => {
                         src={projects[active].images[0]}
                         alt={projects[active].name}
                         fill
-                        className={`object-fit rounded-xl ${
+                        className={`object-contain rounded-xl ${
                           projects[active].id === "the_meridian" ? "pr-10" : ""
                         }`}
                       />
