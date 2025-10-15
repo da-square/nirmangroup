@@ -17,9 +17,9 @@ export default function ContactFormModal() {
     phone: "",
     message: "",
   });
-
   const [isOpen, setIsOpen] = useState(false);
   const [animate, setAnimate] = useState(false);
+  const [status, setStatus] = useState<string>("");
 
   const openModal = () => {
     setIsOpen(true);
@@ -33,13 +33,12 @@ export default function ContactFormModal() {
 
   useEffect(() => {
     const formSubmitted = localStorage.getItem("contactFormSubmitted");
-
     if (formSubmitted === "true") return;
 
     // 2s later open once
     const openTimer = setTimeout(() => openModal(), 2000);
 
-    // reopen after 5 min
+    // reopen after 1 min if not submitted
     const reopenTimer = setTimeout(() => {
       const stillNotSubmitted = localStorage.getItem("contactFormSubmitted");
       if (stillNotSubmitted !== "true") openModal();
@@ -62,19 +61,38 @@ export default function ContactFormModal() {
     });
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+    setStatus("Sending...");
 
-    // ✅ mark form as submitted
-    localStorage.setItem("contactFormSubmitted", "true");
+    try {
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    // ✅ trigger download event
-    triggerDownloadAfterForm();
+      const data = await res.json();
 
-    // close modal
-    setFormData({ name: "", email: "", phone: "", message: "" });
-    handleClose();
+      if (res.ok && data.success) {
+        setStatus("✅ Message sent successfully!");
+        localStorage.setItem("contactFormSubmitted", "true");
+
+        // trigger download event if any
+        triggerDownloadAfterForm();
+
+        // reset form
+        setFormData({ name: "", email: "", phone: "", message: "" });
+
+        // close modal after short delay
+        setTimeout(() => handleClose(), 1500);
+      } else {
+        setStatus("❌ Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      setStatus("❌ An error occurred. Please try again.");
+    }
   };
 
   if (!isOpen) return null;
@@ -101,8 +119,9 @@ export default function ContactFormModal() {
           </span>
         </h2>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
-          {[{ id: "name", type: "text", label: "Full Name" },
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {[
+            { id: "name", type: "text", label: "Full Name" },
             { id: "email", type: "email", label: "Email ID" },
             { id: "phone", type: "tel", label: "Phone Number" },
           ].map((field) => (
@@ -140,6 +159,10 @@ export default function ContactFormModal() {
           >
             Submit
           </button>
+
+          {status && (
+            <p className="mt-2 text-center text-white font-medium">{status}</p>
+          )}
         </form>
       </div>
     </div>
