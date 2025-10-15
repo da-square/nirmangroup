@@ -9,6 +9,13 @@ interface FormData {
   message: string;
 }
 
+interface FormErrors {
+  name?: string;
+  email?: string;
+  phone?: string;
+  // message not included
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -16,14 +23,45 @@ export default function ContactPage() {
     phone: "",
     message: "",
   });
+  const [formErrors, setFormErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<string>("");
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormErrors({ ...formErrors, [e.target.name]: undefined }); // clear error while typing
+  };
+
+  const validate = (): boolean => {
+    const errors: FormErrors = {};
+
+    if (!formData.name.trim()) {
+      errors.name = "Name is required.";
+    } else if (formData.name.length < 3) {
+      errors.name = "Name must be at least 3 characters.";
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      errors.email = "Email is required.";
+    } else if (!emailRegex.test(formData.email)) {
+      errors.email = "Invalid email address.";
+    }
+
+    const phoneRegex = /^[0-9]{10}$/;
+    if (!formData.phone.trim()) {
+      errors.phone = "Phone number is required.";
+    } else if (!phoneRegex.test(formData.phone)) {
+      errors.phone = "Phone number must be 10 digits.";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!validate()) return;
+
     setStatus("Sending...");
 
     try {
@@ -66,10 +104,12 @@ export default function ContactPage() {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                required
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400"
+                className={`border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 transition placeholder-gray-400 ${
+                  formErrors.name ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-green-400"
+                }`}
                 placeholder="Enter your full name"
               />
+              {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
             </div>
 
             {/* Email */}
@@ -83,10 +123,12 @@ export default function ContactPage() {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                required
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400"
+                className={`border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 transition placeholder-gray-400 ${
+                  formErrors.email ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-green-400"
+                }`}
                 placeholder="Enter your email"
               />
+              {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
             </div>
 
             {/* Phone Number */}
@@ -100,13 +142,15 @@ export default function ContactPage() {
                 name="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                required
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400"
+                className={`border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 transition placeholder-gray-400 ${
+                  formErrors.phone ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-green-400"
+                }`}
                 placeholder="Enter your phone number"
               />
+              {formErrors.phone && <p className="text-red-500 text-sm mt-1">{formErrors.phone}</p>}
             </div>
 
-            {/* Message */}
+            {/* Message (no validation error) */}
             <div className="flex flex-col">
               <label htmlFor="message" className="text-gray-700 font-medium mb-2">
                 Your Message
@@ -117,8 +161,7 @@ export default function ContactPage() {
                 rows={6}
                 value={formData.message}
                 onChange={handleChange}
-                required
-                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-400 transition placeholder-gray-400 resize-y"
+                className="border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 transition placeholder-gray-400 resize-y"
                 placeholder="Type your message here"
               />
             </div>
