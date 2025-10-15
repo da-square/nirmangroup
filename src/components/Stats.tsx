@@ -7,9 +7,19 @@ import { motion } from "framer-motion";
 
 const stats = [
   { icon: Users, value: 800, suffix: "+", label: "Happy Customers" },
-  { icon: Building2, value: 9, suffix: "+", label: "Lakh Sq. Ft. Land Bank" },
+  {
+    icon: Building2,
+    value: 32,
+    suffix: "+",
+    label: "Lakh Sq. yard. Land Bank",
+  },
   { icon: Award, value: 10, suffix: "+", label: "Years Of Experience" },
-  { icon: Home, value: 4, suffix: "+", label: "Residential Projects" },
+  {
+    icon: Home,
+    value: 5,
+    suffix: "+",
+    label: "Residential/Commercial Projects",
+  },
   { icon: Briefcase, value: 50, suffix: "+", label: "Channel Partners" },
 ];
 
@@ -19,7 +29,12 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { delay: i * 0.2, duration: 0.8, type: "spring", stiffness: 120 },
+    transition: {
+      delay: i * 0.2,
+      duration: 0.8,
+      type: "spring",
+      stiffness: 120,
+    },
   }),
 };
 
@@ -64,7 +79,9 @@ export default function Stats() {
             </h3>
 
             {/* Label */}
-            <p className="mt-2 text-lg text-gray-700 text-center z-10">{label}</p>
+            <p className="mt-2 text-lg text-gray-700 text-center z-10">
+              {label}
+            </p>
 
             {/* Floating Animation */}
             <motion.div
@@ -79,8 +96,13 @@ export default function Stats() {
       {/* Slow pulse animation for gradient border */}
       <style jsx>{`
         @keyframes pulse-slow {
-          0%, 100% { opacity: 1; }
-          50% { opacity: 0.6; }
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.6;
+          }
         }
         .animate-pulse-slow {
           animation: pulse-slow 3s infinite;
