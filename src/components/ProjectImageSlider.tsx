@@ -76,7 +76,9 @@ export default function ProjectImageSlider({
                 src={src}
                 alt={`${project.name} image ${i + 1}`}
                 fill
-                className="object-fit w-full h-full"
+                className={` ${
+                  i === 0 ? "object-contain" : "object-fit"
+                } rounded-xl ${project.name === "The Meridian" ? "pr-10" : ""}`}
                 sizes="100vw"
                 priority={i === 0}
               />
