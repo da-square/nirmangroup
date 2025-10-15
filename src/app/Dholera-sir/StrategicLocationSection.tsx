@@ -1,33 +1,33 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  MapPin,
-  Truck,
-  Plane,
-  Globe,
-} from "lucide-react";
+import { MapPin, Truck, Plane, Globe } from "lucide-react";
+import Image from "next/image";
 
 const locationHighlights = [
   {
     icon: <MapPin className="w-6 h-6 text-white" />,
     title: "100 km from Ahmedabad",
-    description: "Strategic proximity to Gujarat's economic hub for seamless business operations.",
+    description:
+      "Strategic proximity to Gujarat's economic hub for seamless business operations.",
   },
   {
     icon: <MapPin className="w-6 h-6 text-white" />,
     title: "30 km from Bhavnagar",
-    description: "Excellent access to coastal trade routes and industrial clusters.",
+    description:
+      "Excellent access to coastal trade routes and industrial clusters.",
   },
   {
     icon: <Truck className="w-6 h-6 text-white" />,
     title: "Dedicated Freight Corridor",
-    description: "High-speed rail connectivity via DMIC for efficient logistics and supply chain.",
+    description:
+      "High-speed rail connectivity via DMIC for efficient logistics and supply chain.",
   },
   {
     icon: <Plane className="w-6 h-6 text-white" />,
     title: "Planned International Airport",
-    description: "Future gateway for global connectivity and aviation-driven growth.",
+    description:
+      "Future gateway for global connectivity and aviation-driven growth.",
   },
 ];
 
@@ -56,7 +56,13 @@ export default function StrategicLocationSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-gray-600 mt-4 max-w-3xl mx-auto leading-relaxed"
           >
-            Perfectly positioned in the Delhi-Mumbai Industrial Corridor (DMIC), one of the world's largest infrastructure projects. This prime location offers excellent connectivity and access to major markets. Dholera SIR is strategically located, well connected with trade gateways and falls in the influence zone of proposed Delhi-Mumbai Industrial Corridor project (DMIC), a joint initiative by the Government of India and Japan.
+            Perfectly positioned in the Delhi-Mumbai Industrial Corridor (DMIC),
+            one of the world's largest infrastructure projects. This prime
+            location offers excellent connectivity and access to major markets.
+            Dholera SIR is strategically located, well connected with trade
+            gateways and falls in the influence zone of proposed Delhi-Mumbai
+            Industrial Corridor project (DMIC), a joint initiative by the
+            Government of India and Japan.
           </motion.p>
         </div>
 
@@ -75,12 +81,13 @@ export default function StrategicLocationSection() {
             className="flex-1 lg:w-1/2 max-w-md lg:max-w-lg"
           >
             <div className="relative bg-white/70 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden border border-cyan-100/50 group">
-              <img
-                src="/images/dholera-sir/expressmap.jpg" // Replace with your actual map image path
+              <Image
+                src="/images/map/city-map.jpg"
+                height={600}
+                width={700}
                 alt="Dholera SIR Strategic Location Map"
-                className="w-full h-[600px] lg:h-[700px] object-contain" // Changed to object-contain to show whole image without cropping
+                className="w-full object-contain"
               />
-              {/* Overlay globe icon with subtle animation */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -88,12 +95,10 @@ export default function StrategicLocationSection() {
               >
                 <Globe className="w-7 h-7 text-white" />
               </motion.div>
-              {/* Subtle gradient overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
             </div>
           </motion.div>
 
-          {/* Right: Highlights Grid - Styled like reference feature cards */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -107,16 +112,15 @@ export default function StrategicLocationSection() {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   whileHover={{ y: -8, scale: 1.03 }}
-                  transition={{ 
-                    duration: 0.5, 
+                  transition={{
+                    duration: 0.5,
                     delay: index * 0.1,
                     type: "spring",
-                    stiffness: 300
+                    stiffness: 300,
                   }}
                   viewport={{ once: true }}
                   className="group relative bg-white/60 backdrop-blur-md border border-blue-100 rounded-3xl shadow-md hover:shadow-xl overflow-hidden transition-all duration-300"
                 >
-                  {/* Subtle background gradient on hover, like reference */}
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-100/30 to-blue-100/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                   <div className="p-6 relative z-10">
                     <div className="bg-gradient-to-r from-blue-500 to-cyan-500 w-12 h-12 flex items-center justify-center rounded-full shadow-md mb-4 group-hover:rotate-12 transition-transform duration-300">
