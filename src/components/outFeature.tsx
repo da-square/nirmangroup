@@ -27,11 +27,10 @@ const zones = [
 ];
 
 const timeline = [
-  { text: "The Earth", img: "/images/projects/earth/13.jpg" },
   { text: "The Meridian", img: "/images/projects/meridian/14.jpg" },
-  { text: "Palm Tree", img: "/images/projects/palm-trees/Scene 25_1.png" },
-  { text: "Regalia", img: "/images/projects/regalia/14.jpg" },
-  { text: "Velavadar Exotica", img: "/images/projects/velavadar-exotica/12.png" },
+  { text: "The Regalia", img: "/images/projects/regalia/15.jpg" },
+  { text: "The Velavadar Exotica", img: "/images/projects/velavadar-exotica/12.png" },
+  { text: "The Earth", img: "/images/projects/earth/13.jpg" },
 ];
 
 export default function FutureCityExperience() {
