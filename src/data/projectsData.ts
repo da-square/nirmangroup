@@ -130,7 +130,7 @@ export const projects = [
       "Elegant living with world-class amenities for modern families.",
     projectDescription: the606Description,
     locationAdvantages: [10, 11, 7, 1, 4, 9, 8],
-    amenities: [4, 17, 5, 6, 7, 3],
+    amenities: [27, 28, 29, 30, 31, 24, 25, 12],
     images: [
       "/images/projects/606/logo.png",
     ],
@@ -404,4 +404,9 @@ export const amenities = [
   },
   { id: 25, icon: "🛣️", title: "Internal Wide Road (12 & 9 mtr)" },
   { id: 26, icon: "🛕", title: "Temple" },
+  { id: 27, icon: "⚡", title: "EV Charging Stations" },
+  { id: 28, icon: "☀️", title: "Solar-Powered Street Lights" },
+  { id: 29, icon: "🍽️", title: "Garden Restaurant Area" },
+  { id: 30, icon: "🪑", title: "Landscaped Sitting Area / Gazebo" },
+  { id: 31, icon: "☕", title: "Cafeteria Area / Food Court Zone" },
 ];
