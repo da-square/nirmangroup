@@ -46,7 +46,7 @@ const Offerings = () => {
                     className="object-cover group-hover:scale-105 transition-transform duration-700 rounded-2xl"
                   />
                   <div
-                    className={`absolute inset-0 bg-gradient-to-t ${item.color} opacity-60 group-hover:opacity-80 transition-opacity rounded-2xl`}
+                    className={`absolute inset-0 bg-gradient-to-t opacity-60 group-hover:opacity-80 transition-opacity rounded-2xl`}
                   />
                 </div>
               </div>

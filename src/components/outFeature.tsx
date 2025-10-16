@@ -182,11 +182,6 @@ export default function FutureCityExperience() {
                       <p className="text-lg sm:text-2xl font-semibold mb-1 sm:mb-2 bg-gradient-to-r from-green-600 to-sky-500 bg-clip-text text-transparent">
                         {event.text}
                       </p>
-                      {event.description && (
-                        <p className="text-gray-700 text-xs sm:text-sm leading-relaxed tracking-wide">
-                          {event.description}
-                        </p>
-                      )}
                     </div>
                   </div>
                 </div>

@@ -180,7 +180,10 @@ export default function FloatingBanner() {
       }
     `;
     document.head.appendChild(style);
-    return () => document.head.removeChild(style);
+    
+    return () => {
+      document.head.removeChild(style);
+    };
   }, [mounted]);
 
   // Infinite scroll logic

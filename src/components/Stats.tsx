@@ -3,7 +3,7 @@
 import { Users, Building2, Award, Home, Briefcase } from "lucide-react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const stats = [
   { icon: Users, value: 800, suffix: "+", label: "Happy Customers" },
@@ -23,7 +23,7 @@ const stats = [
   { icon: Briefcase, value: 50, suffix: "+", label: "Channel Partners" },
 ];
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50, scale: 0.95 },
   visible: (i: number) => ({
     opacity: 1,
