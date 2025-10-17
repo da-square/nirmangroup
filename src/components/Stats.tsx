@@ -9,7 +9,7 @@ const stats = [
   { icon: Users, value: 800, suffix: "+", label: "Happy Customers" },
   {
     icon: Building2,
-    value: 32,
+    value: 4,
     suffix: "+",
     label: "Lakh Sq. yard. Land Bank",
   },

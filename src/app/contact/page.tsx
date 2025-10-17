@@ -187,7 +187,11 @@ export default function ContactPage() {
             Dholera Nirman Group
           </h2>
           <p className="text-gray-700 mb-6 leading-relaxed text-center lg:text-left text-xl">
-            Dholera Nirman Group stands at the forefront of real estate development, specializing in the acquisition and sale of premium residential plots.
+            At Dholera Nirman Group, we turn land into lasting legacies —
+            offering prime residential, commercial, and bulk plots in the heart
+            of Gujarat’s fastest-growing smart city region. Invest today in a
+            future where growth meets opportunity, and every square yard holds
+            the promise of prosperity.
           </p>
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
