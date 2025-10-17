@@ -49,7 +49,7 @@ export default function ProjectImageSlider({
   if (!project.images || project.images.length === 0) return null;
 
   return (
-    <section className="relative w-full max-w-7xl mx-auto px-3 sm:px-6 md:px-8 py-6 sm:py-10 mt-8 sm:mt-12">
+    <section className="relative w-full max-w-7xl mx-auto px-3 sm:px-6 md:px-8 py-6 sm:py-10 mt-14 sm:mt-12">
       {/* Slider Container */}
       <div
         className="relative overflow-hidden rounded-xl shadow-lg bg-gradient-to-br from-emerald-100 via-green-50 to-lime-100 h-[18rem] sm:h-[24rem] md:h-[30rem] lg:h-[36rem]"
