@@ -1,13 +1,9 @@
 const projectDescription = `
-    The Dholera Nirman Group stand as a distinguished and leading force in
-    the realm of Real Estate within Dholera Smart City, with its developments
-    strategically positioned within and along the periphery of Dholera SIR.
-    Renowned for it’s reliability and unwavering trustworthiness, the group has
-    carved out an indomitable reputation among the premier developers in the
-    region.
-    Our projects epitomize refined living. meticulously crafted to offer a
-    sophisticated Ambience paired with robust infrastructural development and
-    a wealth of modern amenities.
+    At Dholera Nirman Group, we turn land into lasting legacies —
+    offering prime residential, commercial, and bulk plots in the heart
+    of Gujarat’s fastest-growing smart city region. Invest today in a
+    future where growth meets opportunity, and every square yard holds
+    the promise of prosperity..
 `;
 
 const theVelavadarDescription = `The Velavadar Exotica is a premium Residential Plotting
@@ -111,7 +107,7 @@ export const projects = [
     name: "The Regalia",
     description:
       "Elegant living with world-class amenities for modern families.",
-    nirmaGroupDescription: theRegaliaDescription,
+    projectDescription: theRegaliaDescription,
     locationAdvantages: [1, 2, 14, 10, 5, 7, 4, 8, 9, 15, 16],
     amenities: [4, 16, 17, 5, 7, 15],
     images: [
@@ -131,9 +127,7 @@ export const projects = [
     projectDescription: the606Description,
     locationAdvantages: [10, 11, 7, 1, 4, 9, 8],
     amenities: [27, 28, 29, 30, 31, 24, 25, 12],
-    images: [
-      "/images/projects/606/logo.png",
-    ],
+    images: ["/images/projects/606/logo.png"],
   },
   {
     id: "the_velavadar_exotica",
