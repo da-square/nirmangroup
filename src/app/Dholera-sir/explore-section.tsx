@@ -149,22 +149,30 @@ const ExploreSirSection = () => {
         <div>
           {/* Tabs */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {tabs.map((tab) => (
-              <motion.button
-                key={tab.id}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-full border transition-all duration-300 font-medium text-sm sm:text-base
-                ${
-                  activeTab === tab.id
-                    ? "bg-gradient-to-r from-green-500 to-sky-500 text-white shadow-md border-transparent scale-105"
-                    : "bg-white/70 backdrop-blur-md border border-green-100 hover:text-green-700 hover:bg-white"
-                }`}
-              >
-                {tab.icon}
-                {tab.label}
-              </motion.button>
-            ))}
+            {tabs.map((tab) => {
+              const isActive = activeTab === tab.id;
+              return (
+                <motion.button
+                  key={tab.id}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm sm:text-base transition-all duration-300 shadow-sm ${
+                    isActive
+                      ? "bg-gradient-to-r from-green-400 to-sky-500 text-white shadow-lg"
+                      : "bg-white/40 backdrop-blur-md text-gray-400 border border-white/60"
+                  }`}
+                >
+                  <span
+                    className={`transition-colors duration-300 ${
+                      isActive ? "text-white" : "text-gray-400"
+                    }`}
+                  >
+                    {tab.icon}
+                  </span>
+                  {tab.label}
+                </motion.button>
+              );
+            })}
           </div>
 
           {/* Tab Content */}

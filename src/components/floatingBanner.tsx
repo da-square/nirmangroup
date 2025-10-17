@@ -35,13 +35,6 @@ export default function FloatingBanner() {
   // ---------- 2025 ----------
   {
     name: "Diwali 2025",
-    startDate: todayStr,
-    endDate: todayStr,
-    greeting: "🪔 Happy Diwali!",
-    offerMessage: "Light up your life with our special festive offers! ✨",
-  },
-  {
-    name: "Diwali 2025",
      startDate: "2025-10-18",
       endDate: "2025-10-23",
     greeting: "🪔 Happy Diwali!",
