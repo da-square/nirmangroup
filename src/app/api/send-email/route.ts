@@ -5,12 +5,15 @@ export async function POST(req: NextRequest) {
   try {
     const { name, email, phone, message } = await req.json();
 
-    if (!name || !email || !message || !phone) {
+    // Only check required fields (name, email, phone)
+    if (!name || !email || !phone) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
         { status: 400 }
       );
     }
+
+    const safeMessage = message || ""; // default to empty string if not provided
 
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
@@ -32,7 +35,7 @@ Customer Name: ${name}
 Customer Email: ${email}
 Customer Phone No.: ${phone}
 
-Message Body: ${message}
+Message Body: ${safeMessage}
 
 --
 This is a notification that a contact form was submitted on your website (Dholera Nirman Group https://www.dholeranirmangroup.com).
@@ -44,7 +47,7 @@ This is a notification that a contact form was submitted on your website (Dholer
         <p>Customer Phone No.: ${phone}</p>
         <br/>
         <p><strong>Message Body:</strong></p>
-        <p>${message}</p>
+        <p>${safeMessage}</p>
         <hr/>
         <p>
         This is a notification that a contact form was submitted on your website 
