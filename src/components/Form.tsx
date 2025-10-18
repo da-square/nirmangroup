@@ -46,11 +46,11 @@ export default function ContactFormModal() {
     // 2s later open once
     const openTimer = setTimeout(() => openModal(), 2000);
 
-    // reopen after 1 min if not submitted
+    // reopen after 2 min if not submitted
     const reopenTimer = setTimeout(() => {
       const stillNotSubmitted = localStorage.getItem("contactFormSubmitted");
       if (stillNotSubmitted !== "true") openModal();
-    }, 1 * 60 * 1000);
+    }, 2 * 60 * 1000);
 
     const handleOpenEvent = () => openModal();
     window.addEventListener(CONTACT_MODAL_EVENT, handleOpenEvent);
@@ -153,12 +153,20 @@ export default function ContactFormModal() {
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Required fields with asterisk */}
           {[
             { id: "name", type: "text", label: "Full Name" },
             { id: "email", type: "email", label: "Email ID" },
             { id: "phone", type: "tel", label: "Phone Number" },
           ].map((field) => (
             <div key={field.id} className="relative group">
+              <label
+                htmlFor={field.id}
+                className="absolute left-3 top-2 text-gray-400 text-sm flex items-center gap-1"
+              >
+                {field.label}
+                <span className="text-red-500">*</span>
+              </label>
               <input
                 type={field.type}
                 id={field.id}
@@ -172,9 +180,6 @@ export default function ContactFormModal() {
                     : "border-gray-500/30"
                 }`}
               />
-              <label htmlFor={field.id} className="absolute left-3 top-2 text-gray-400 text-sm">
-                {field.label}
-              </label>
               {formErrors[field.id as keyof FormErrors] && (
                 <p className="text-red-500 text-sm mt-1">
                   {formErrors[field.id as keyof FormErrors]}
@@ -183,15 +188,21 @@ export default function ContactFormModal() {
             </div>
           ))}
 
-          {/* Message field without validation */}
+          {/* Message (no star, no validation) */}
           <div className="relative group">
+            <label
+              htmlFor="message"
+              className="absolute left-3 top-2 text-gray-400 text-sm"
+            >
+              Message
+            </label>
             <textarea
               id="message"
               name="message"
               rows={3}
               value={formData.message}
               onChange={handleChange}
-              placeholder="Your Message"
+              placeholder=" "
               className="w-full px-3 pt-5 pb-2 text-white bg-transparent border-b-2 border-gray-500/30 focus:outline-none resize-none"
             />
           </div>

@@ -96,7 +96,7 @@ export default function ContactPage() {
             {/* Full Name */}
             <div className="flex flex-col">
               <label htmlFor="name" className="text-gray-700 font-medium mb-2">
-                Full Name
+                Full Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -115,7 +115,7 @@ export default function ContactPage() {
             {/* Email */}
             <div className="flex flex-col">
               <label htmlFor="email" className="text-gray-700 font-medium mb-2">
-                Email ID
+                Email ID <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -134,7 +134,7 @@ export default function ContactPage() {
             {/* Phone Number */}
             <div className="flex flex-col">
               <label htmlFor="phone" className="text-gray-700 font-medium mb-2">
-                Phone Number
+                Phone Number <span className="text-red-500">*</span>
               </label>
               <input
                 type="tel"
